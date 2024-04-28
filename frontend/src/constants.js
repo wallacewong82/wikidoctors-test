@@ -1,0 +1,21 @@
+// export const BASE_URL =
+//   process.env.NOD_ENV === "development" ? "http://localhost:5000" : "";
+export const BASE_URL = '';
+export const PRODUCTS_URL = "/api/screening";
+export const USERS_URL = "/api/users";
+export const ORDERS_URL = "/api/orders";
+export const APPOINTMENTS_URL = "/api/appointments";
+export const REPORTS_URL = "/api/reports";
+export const FEEDBACK_URL = "/api/feedback";
+export const STAFFING_URL = "/api/staffing";
+export const LABRESULTS_URL = "/api/labresults"
+export const STRIPE_URL = "/api/stripe";
+export const SPECIALISTS_URL = "/api/specialists";
+export const PACKAGES_URL = "/api/findpackage";
+export const COVERAGE_URL = "/api/checkcoverage";
+export const UPLOAD_URL = "/api/upload";
+export const MAP_URL = "/api/map";
+export const BLOG_URL = "/api/blogs";
+export const NEWSLETTER_URL = "/api/newsletter";
+export const PUBLICFEEDBACK_URL = "/api/pfeedback";
+export const DASHBOARD_URL = "/api/dashboard";
