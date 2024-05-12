@@ -66,16 +66,7 @@ const FeedbackForm = () => {
     <Form onSubmit={submitFormHandler}>
       <Row className="d-flex">
         <Col md={4}>
-          <Form.Label
-            className="float-end"
-            style={{
-              fontSize: "18px",
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-          >
-            Name*:
-          </Form.Label>
+          <Form.Label className={"custom-feedbackformlabel"}>Name*:</Form.Label>
         </Col>
         <Col md={8}>
           <Form.Control
@@ -83,28 +74,14 @@ const FeedbackForm = () => {
             name="name"
             onChange={(e) => setName(e.target.value)}
             value={name}
-            placeholder="Enter your name"
-            className="mr-sm-2 ml-sm-5"
-            style={{
-              fontSize: "18px",
-              width: "265px",
-              marginTop: "5px",
-              marginBottom: "10px",
-              marginRight: "5px",
-            }}
+            placeholder="Enter name"
+            className={"custom-feedbackformfield"}
           ></Form.Control>
         </Col>
       </Row>
       <Row className="d-flex">
         <Col md={4}>
-          <Form.Label
-            className="float-end"
-            style={{
-              fontSize: "18px",
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-          >
+          <Form.Label className={"custom-feedbackformlabel"}>
             Email*:
           </Form.Label>
         </Col>
@@ -115,30 +92,14 @@ const FeedbackForm = () => {
             onChange={activateJoinHandler}
             onBlur={activateJoinHandler}
             value={email}
-            placeholder="Enter your email"
-            className="mr-sm-2 ml-sm-5"
-            style={{
-              fontSize: "18px",
-              width: "265px",
-              marginTop: "5px",
-              marginBottom: "10px",
-              marginRight: "5px",
-            }}
+            placeholder="Enter email"
+            className={"custom-feedbackformfield"}
           ></Form.Control>
         </Col>
       </Row>
       <Row className="d-flex">
         <Col md={4}>
-          <Form.Label
-            className="float-end"
-            style={{
-              fontSize: "18px",
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-          >
-            Phone:
-          </Form.Label>
+          <Form.Label className={"custom-feedbackformlabel"}>Phone:</Form.Label>
         </Col>
         <Col md={8}>
           <Form.Control
@@ -146,28 +107,14 @@ const FeedbackForm = () => {
             name="phone"
             onChange={(e) => setPhone(e.target.value)}
             value={phone}
-            placeholder="Enter your phone number"
-            className="mr-sm-2 ml-sm-5"
-            style={{
-              fontSize: "18px",
-              width: "265px",
-              marginTop: "5px",
-              marginBottom: "10px",
-              marginRight: "5px",
-            }}
+            placeholder="Enter phone number"
+            className={"custom-feedbackformfield"}
           ></Form.Control>
         </Col>
       </Row>
       <Row className="d-flex">
         <Col md={4}>
-          <Form.Label
-            className="float-end"
-            style={{
-              fontSize: "18px",
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-          >
+          <Form.Label className={"custom-feedbackformlabel"}>
             Subject*:
           </Form.Label>
         </Col>
@@ -177,28 +124,14 @@ const FeedbackForm = () => {
             name="subject"
             onChange={(e) => setSubject(e.target.value)}
             value={subject}
-            placeholder="Enter your subject"
-            className="mr-sm-2 ml-sm-5"
-            style={{
-              fontSize: "18px",
-              width: "265px",
-              marginTop: "5px",
-              marginBottom: "10px",
-              marginRight: "5px",
-            }}
+            placeholder="Enter subject"
+            className={"custom-feedbackformfield"}
           ></Form.Control>
         </Col>
       </Row>
       <Row className="d-flex">
         <Col md={4}>
-          <Form.Label
-            className="float-end"
-            style={{
-              fontSize: "18px",
-              marginTop: "10px",
-              marginBottom: "10px",
-            }}
-          >
+          <Form.Label className={"custom-feedbackformlabel"}>
             Message*:
           </Form.Label>
         </Col>
@@ -209,29 +142,16 @@ const FeedbackForm = () => {
             as="textarea"
             onChange={(e) => setMessage(e.target.value)}
             value={message}
-            placeholder="Enter your message"
-            className="mr-sm-2 ml-sm-5"
+            placeholder="Enter message"
             rows={4}
-            style={{
-              fontSize: "18px",
-              width: "265px",
-              marginTop: "5px",
-              marginBottom: "10px",
-              marginRight: "5px",
-            }}
+            className={"custom-feedbackformfield"}
           ></Form.Control>
         </Col>
       </Row>
       <Button
         type="submit"
         variant="btn"
-        className="p-2 mx-2 float-end "
-        style={{
-          fontSize: "18px",
-          fontWeight: "bold",
-          color: "#40679E",
-          borderColor: "#40679E",
-        }}
+        className={"custom-feedbackformbutton"}
         disabled={!(!!name && !!buttonEnabled && !!subject && !!message)}
       >
         Submit Feedback

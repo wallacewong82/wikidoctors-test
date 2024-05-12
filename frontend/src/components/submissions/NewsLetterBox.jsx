@@ -52,8 +52,7 @@ const NewsLetterBox = () => {
   };
   return (
     <Form
-      style={{ position: "absolute", bottom: "110px" }}
-      className="d-flex"
+      className={"custom-newsletterform"}
       onSubmit={joinNewsletterHandler}
     >
       <Form.Control
@@ -63,14 +62,12 @@ const NewsLetterBox = () => {
         onBlur={activateJoinHandler}
         value={userEmail}
         placeholder="Enter valid email address"
-        className="mr-sm-2 ml-sm-5"
-        style={{ fontSize: "18px", width: "500px" }}
+        className={"custom-newsletterfield"}
       ></Form.Control>
       <Button
         type="submit"
         variant="btn"
-        className="p-2 mx-2"
-        style={{ fontSize: "18px", fontWeight: "bold",color: "#40679E",borderColor:"#40679E"}}
+        className={"custom-newsletterbutton"}
         disabled={!buttonEnabled}
       >
         Subscribe

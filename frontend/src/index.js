@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import "./assets/styles/bootstrap.custom.css";
-import "./assets/styles/index.css";
+// import "./assets/styles/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import './assets/styles/index.css';
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import {
@@ -13,7 +14,7 @@ import {
 } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import HomeScreen from "./screens/HomeScreen";
-import ProductScreen from "./screens/old/ProductScreen";
+//import ProductScreen from "./screens/old/ProductScreen";
 import { Provider } from "react-redux";
 import store from "./store";
 import BookingScreen from "./screens/old/BookingScreen";
@@ -23,7 +24,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import SpecialistScreen from "./screens/specialist/SpecialistScreen";
 import BlogScreen from "./screens/blog/BlogScreen";
 import BlogDetailScreen from "./screens/blog/BlogDetailScreen";
-import CheckCoverageScreen from "./screens/old/CheckCoverageScreen";
+//import CheckCoverageScreen from "./screens/old/CheckCoverageScreen";
 import FindPackageScreen from "./screens/old/FindPackageScreen";
 import SpecialistDetailScreen from "./screens/specialist/SpecialistDetailScreen";
 import PrivateRoute from "./components/PrivateRoute";
@@ -44,8 +45,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
-
-      <Route path="/screening/:id" element={<ProductScreen />} />
+      {/* <Route path="/screening/:id" element={<ProductScreen />} /> */}
       <Route path="/booking" element={<BookingScreen />} />
       <Route path="/blogs" element={<BlogScreen />} />
       <Route path="/blogs/:id" element={<BlogDetailScreen />} />
@@ -74,7 +74,7 @@ const router = createBrowserRouter(
       />
 
       <Route path="/findpackage" element={<FindPackageScreen />} />
-      <Route path="/checkcoverage" element={<CheckCoverageScreen />} />
+      {/* <Route path="/checkcoverage" element={<CheckCoverageScreen />} /> */}
 
       <Route path="" element={<PrivateRoute />}>
         <Route path="/dashboard" element={<UserDashboard />} />

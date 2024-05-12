@@ -118,8 +118,8 @@ const SearchBox = () => {
   return (
     <Form
       onSubmit={submitHandler}
-      className="d-flex"
-      style={{ marginTop: "30px" }}
+      //className="d-flex"
+      className={"custom-searchboxform"}
     >
       <Form.Control
         type="text"
@@ -127,14 +127,14 @@ const SearchBox = () => {
         onChange={typeHandler}
         value={keyword}
         placeholder="Search doctor, insurer, or specialty"
-        className="mr-sm-2 ml-sm-5"
-        style={{ fontSize: "24px", height: "80px" }}
+       // className="mr-sm-2 ml-sm-5"
+        className={"custom-searchboxfield"}
       ></Form.Control>
       <Button
         type="submit"
         variant="btn"
-        className="p-2 mx-2"
-        style={{ fontSize: "24px", fontWeight: "bold",color: "#40679E",borderColor:"#40679E"}}
+       // className="p-2 mx-2"
+        className={"custom-searchboxbutton"} 
         disabled={!buttonEnabled}
       >
         Search

@@ -23,11 +23,13 @@ const Header = () => {
   const [activeKey, setActiveKey] = useState("home");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const [expanded, setExpanded] = useState(false);
+  // const [isFixed, setIsFixed] = useState(true);
   const handleSelect = (key) => {
     setActiveSpecKey(null);
     setActiveKey(key);
     setActiveAdminKey(null);
+    setExpanded(false);
   };
 
   const [activeSpecKey, setActiveSpecKey] = useState(null);
@@ -74,6 +76,11 @@ const Header = () => {
       setActiveSpecKey(null);
       setActiveAdminKey(null);
       setActivePrivateKey(null);
+    } else if (currentPage === "doctorsignup"){
+      setActiveKey("doctorsignup");
+      setActiveSpecKey(null);
+      setActiveAdminKey(null);
+      setActivePrivateKey(null);
     } else if (currentPage === "admin") {
       setActiveKey("admin");
       setActiveSpecKey(null);
@@ -106,9 +113,11 @@ const Header = () => {
   };
 
   const signInHandler = () => {
+    handleSelect();
     navigate("/login");
   };
   const doctorSignupHandler = () => {
+    handleSelect();
     navigate("/doctorsignup");
   };
 
@@ -131,6 +140,24 @@ const Header = () => {
     const phoneNumber = "6581234567"; // need to change this phone number later
     window.open(`tel:${phoneNumber}`);
   };
+  //   useEffect(() => {
+  //     const handleScroll = () => {
+  //         // Check if the user has scrolled down enough to unfix the navbar
+  //         if (window.scrollY > 100) {
+  //             setIsFixed(false);
+  //         } else {
+  //             setIsFixed(true);
+  //         }
+  //     };
+
+  //     // Attach the scroll event listener
+  //     window.addEventListener('scroll', handleScroll);
+
+  //     // Remove the event listener on component unmount
+  //     return () => {
+  //         window.removeEventListener('scroll', handleScroll);
+  //     };
+  // }, []); // Only run this effect once on component mount
 
   return (
     <header>
@@ -140,40 +167,26 @@ const Header = () => {
         variant="light"
         expand="md"
         collapseOnSelect
-        style={{
-          minHeight: 100,
-          fontSize: "12px",
-          marginLeft: "50px",
-          marginRight: "30px",
-          opacity: "90%",
-        }}
+        className={"custom-navbar"}
+        expanded={expanded}
+        //  fixed={isFixed ? "top" : ""}
       >
         <Container>
           <LinkContainer to="/" onClick={() => handleSelect("home")}>
             <Navbar.Brand>
               <Image
-                src={`/api/webimage/662e0e1813b90687ef7706b3`}
-                //  src="../favicon.ico"
-                style={{
-                  color: "#40679E",
-                  height: "30px",
-                  width: "30px",
-                  marginBottom: "10px",
-                }}
+                src={`/api/webimage/663f68aaa3db0d582d1d4cdc`}
+                alt={"WikiDoctors.com logo"}
+                className={"custom-navbarlogo"}
               />{" "}
-              <span
-                style={{
-                  color: "#40679E",
-                  fontWeight: "bold",
-                  fontSize: "30px",
-                }}
-              >
-                HealthChannel
-              </span>
+              {/* <span className={"custom-navbarspan"}>WikiDoctors</span> */}
             </Navbar.Brand>
           </LinkContainer>
 
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={() => setExpanded(!expanded)}
+          />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav
               className="ms-auto"
@@ -200,48 +213,21 @@ const Header = () => {
               {!(userInfo && !userInfo.isAdmin) && (
                 <NavDropdown
                   title={`Specialists`}
-                  style={
+                  onSelect={handleSelect}
+                  className={
                     activeSpecKey
-                      ? {
-                          margin: "10px",
-                          fontSize: "18px",
-                          color: "black",
-                          fontWeight: "none",
-                          borderRadius: "0.5em .5em .5em .5em",
-                          backgroundColor: "lightgrey",
-                        }
-                      : {
-                          margin: "10px",
-                          fontSize: "18px",
-                          color: "black",
-                          fontWeight: "none",
-                        }
+                      ? "custom-navdropdown1a"
+                      : "custom-navdropdown1b"
                   }
                   active={!!activeSpecKey}
                 >
-                  <NavDropdown.Header
-                    style={{
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "normal",
-                    }}
-                  >
+                  <NavDropdown.Header className="custom-navdropdownheader">
                     Find doctor by specialty
                   </NavDropdown.Header>
                   <NavDropdown.Divider />
                   <NavDropdown
                     title={"Surgery"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                      position: "relative",
-                      display: "flex",
-                      marginTop: "0",
-                      border: "none",
-                      boxShadow: "none",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("cardiothoracic")}
@@ -281,12 +267,7 @@ const Header = () => {
                   </NavDropdown>
                   <NavDropdown
                     title={"Critical Care"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("anaesthesiology")}
@@ -301,12 +282,7 @@ const Header = () => {
                   </NavDropdown>
                   <NavDropdown
                     title={"Cancer Care and Diagnostic Imaging"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("medical onco")}
@@ -331,12 +307,7 @@ const Header = () => {
                   </NavDropdown>
                   <NavDropdown
                     title={"Internal Organ Care"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("cardiology")}
@@ -392,12 +363,7 @@ const Header = () => {
 
                   <NavDropdown
                     title={"Neural and Mental Health"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("neurology")}
@@ -412,12 +378,7 @@ const Header = () => {
                   </NavDropdown>
                   <NavDropdown
                     title={"Paediatric Care"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() =>
@@ -437,12 +398,7 @@ const Header = () => {
 
                   <NavDropdown
                     title={"Sensory Organ Care"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("dentistry")}
@@ -472,12 +428,7 @@ const Header = () => {
                   </NavDropdown>
                   <NavDropdown
                     title={"Sexual Health and Reproductive Care"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("gynae")}
@@ -493,12 +444,7 @@ const Header = () => {
                   </NavDropdown>
                   <NavDropdown
                     title={"Occupational, Rehabilitative, and Public Health"}
-                    style={{
-                      margin: "10px",
-                      fontSize: "18px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
+                    className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
                       onClick={() => chooseSpecialistHandler("occupational")}
@@ -526,9 +472,7 @@ const Header = () => {
                   style={{ margin: "10px" }}
                   eventKey="blog"
                 >
-                  <span style={{ fontSize: "18px", fontWeight: "none" }}>
-                    Blog
-                  </span>
+                  <span className={"custom-navbartitle"}>Blog</span>
                 </Nav.Link>
               )}
               {userInfo ? (
@@ -536,25 +480,14 @@ const Header = () => {
                   <NavDropdown
                     title={`Welcome ${userInfo.firstName}`}
                     id="username"
-                    style={
+                    className={
                       activePrivateKey
-                        ? {
-                            margin: "10px",
-                            fontSize: "18px",
-                            color: "black",
-                            fontWeight: "none",
-                            borderRadius: "0.5em .5em .5em .5em",
-                            backgroundColor: "lightgrey",
-                          }
-                        : {
-                            margin: "10px",
-                            fontSize: "18px",
-                            color: "black",
-                            fontWeight: "none",
-                          }
+                        ? "custom-navdropdown1a"
+                        : "custom-navdropdown1b"
                     }
                     active={!!activePrivateKey}
                     onClick={choosePrivateHandler}
+                    onSelect={handleSelect}
                   >
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>Profile</NavDropdown.Item>
@@ -568,36 +501,29 @@ const Header = () => {
                 // <LinkContainer to="/login">
                 //   <Nav.Link>
                 <>
-                  <Button
-                    className="btn btn-light mr-auto"
-                    type="button"
-                    onClick={signInHandler}
-                    style={{
-                      margin: "10px",
-                      border: "solid",
-                      borderWidth: "1px",
-                    }}
-                  >
-                    <FaUser size={20} />{" "}
-                    <span style={{ fontSize: "16px" }}>Sign in</span>
-                  </Button>
-                  <Button
-                    className="btn btn-light mr-auto"
-                    type="button"
-                    onClick={doctorSignupHandler}
-                    style={{
-                      margin: "10px",
-                      border: "solid",
-                      borderWidth: "1px",
-                      color: "#40679E",
-                    }}
-                  >
-                    <FontAwesomeIcon
-                      icon={icon({ name: "user-doctor" })}
-                      size="lg"
-                    />{" "}
-                    <span style={{ fontSize: "16px" }}>Join as Doctor</span>
-                  </Button>
+                  <div className="custom-navbarcontainer">
+                    <Button
+                      className="custom-navbarbtn"
+                      type="button"
+                      onClick={signInHandler}
+                    >
+                      <FaUser className={"custom-navbariconsize"}/>{" "}
+                      <span className="custom-navbarspan">Sign in</span>
+                    </Button>
+                  </div>{" "}
+                  <div className="custom-navbarcontainer">
+                    <Button
+                      className="custom-navbarbtn2"
+                      onClick={doctorSignupHandler}
+                      
+                    >
+                      <FontAwesomeIcon
+                        icon={icon({ name: "user-doctor" })}
+                        className={"custom-navbariconsize"}
+                      />{" "}
+                      <span className="custom-navbarspan2" >Join as Doctor</span>
+                    </Button>
+                  </div>
                 </>
                 //   </Nav.Link>
                 // </LinkContainer>
@@ -606,22 +532,10 @@ const Header = () => {
                 <NavDropdown
                   title="Admin"
                   id="adminmenu"
-                  style={
+                  className={
                     activeAdminKey
-                      ? {
-                          margin: "10px",
-                          fontSize: "18px",
-                          color: "black",
-                          fontWeight: "none",
-                          borderRadius: "0.5em .5em .5em .5em",
-                          backgroundColor: "lightgrey",
-                        }
-                      : {
-                          margin: "10px",
-                          fontSize: "18px",
-                          color: "black",
-                          fontWeight: "none",
-                        }
+                      ? "custom-navdropdown1a"
+                      : "custom-navdropdown1b"
                   }
                   active={!!activeAdminKey}
                   onClick={chooseAdminHandler}
@@ -640,24 +554,15 @@ const Header = () => {
                   </LinkContainer>
                 </NavDropdown>
               )}
-              <Nav.Link
-                className="btn btn-dark mr-auto"
-                type="button"
-                onClick={callHandler}
-                style={{
-                  margin: "10px",
-                  backgroundColor: "#40679E",
-                  color: "white",
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={icon({ name: "phone-volume" })}
-                  size="xl"
-                />{" "}
-                <strong style={{ fontSize: "18px", fontWeight: "none" }}>
-                  65 81234567
-                </strong>
-              </Nav.Link>
+              <div className="custom-navbarcontainer">
+                <Nav.Link className="custom-navbarbtn3" onClick={callHandler}>
+                  <FontAwesomeIcon
+                    icon={icon({ name: "phone-volume" })}
+                    className={"custom-navbariconsize"}
+                  />{" "}
+                  <strong className="custom-navbarspan3">65 81234567</strong>
+                </Nav.Link>
+              </div>
             </Nav>
           </Navbar.Collapse>
         </Container>

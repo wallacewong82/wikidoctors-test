@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const HealthConcernCard = ({ concerncount }) => {
   const navigate = useNavigate();
   const onClickHandler = () => {
-
     if (concerncount.name === "Paediatric Care") {
       navigate("/specialists/neonato|paediatric med|paediatric surg&&&&");
     }
@@ -29,7 +28,9 @@ const HealthConcernCard = ({ concerncount }) => {
       navigate("/specialists/neurology|psychiatry&&&&");
     }
     if (concerncount.name === "Sensory Organ Care") {
-      navigate("/specialists/dermato|dentistry|ophthalmo|otorhino|respirato&&&&");
+      navigate(
+        "/specialists/dermato|dentistry|ophthalmo|otorhino|respirato&&&&"
+      );
     }
     if (concerncount.name === "Sexual Health and Reproductive Care") {
       navigate("/specialists/gynae|urology&&&&");
@@ -37,47 +38,25 @@ const HealthConcernCard = ({ concerncount }) => {
   };
   return (
     <Card
-      className="my-5 p-1 rounded"
-      style={{ width: "130px", borderStyle: "none", height: "80px" }}
+      className={"custom-healthinterestcard"}
+      // "my-5 p-1 rounded"
       value={concerncount.name}
       onClick={onClickHandler}
     >
       {/* <Link to={`/specialists`} style={{ textDecoration:"none" }}> */}
       <Card.Body>
-        <div
-          style={{
-            backgroundColor: "#40679E",
-            width: "100px",
-            height: "100px",
-            borderRadius: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className={"custom-healthinterestbody"}>
           <Card.Img
             src={concerncount.image}
             variant="top"
-            style={{
-              maxHeight: "70%",
-              maxWidth: "70%",
-              marginLeft: "0%",
-              marginTop: "15%",
-              filter: "invert(100)",
-            }}
+            className={"custom-healthinterestimage"}
+            alt={`image for ${concerncount.name}`}
           />
         </div>
-        <Card.Title
-          as="div"
-          style={{
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            color: "black",
-          }}
-        >
-          <h6>
+        <Card.Title as="div" className={"custom-healthinteresttitle"}>
+          <p style={{"padding":"0px","margin":"0px" }}>
             <b>{concerncount.name}</b>
-          </h6>
+          </p>
         </Card.Title>
       </Card.Body>
       {/* </Link> */}

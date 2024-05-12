@@ -61,52 +61,2903 @@ table th {
   height: 100%;
   width: 100%;
 }
-/* 
-.paginationItemStyle {
-  margin-left: 3px;
-  margin-right: 3px;
-  .page-link {
-    color: green;
-  }
- .page-item.active .page-link {
 
-      background-color: green;
-      border-color: green;
-    
-  }
-} */
 .paginationItemStyle {
   margin-left: 3px;
   margin-right: 3px;
   .page-link {
-      color: #40679E;
-      background:white;
+    color: #1165a0;
+    background: white;
   }
   &.page-item.active .page-link {
-    background: #40679E;
-    color:white;
+    background: #1165a0;
+    color: white;
     border-color: white;
   }
-  &.page-item:hover .page-link{
+  &.page-item:hover .page-link {
     background: navy;
-    color:white;
+    color: white;
     border-color: white;
   }
 }
 
-.customModal{
-  position:fixed;
-  padding:150px;
-}
-.customModal .modal-dialog{
-  max-width:1000px;
-}
-
-.customModal .modal-content{
-  width:100%;
-}
 .main-container {
   width: 80%; /* Set the desired width */
   margin: 0 auto; /* Center the main container horizontally */
 }
 
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden; /* Lock scrolling horizontally */
+  }
+  .custom-navbarlogo {
+    color: #1165a0;
+    height: 60px;
+    width: 180px;
+    margin-bottom: 10px;
+  }
+  .custom-navbarspan {
+    color: #1165a0;
+    font-weight: bold;
+    font-size: 25px;
+  }
+  .custom-navbar {
+    /* Adjust the height or any other styles as needed */
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    max-width: 768px;
+    min-height: 100px;
+    font-size: 12px;
+    opacity: 97%;
+    z-index: 1000;
+    overflow-x: hidden;
+  }
+  .custom-navbar .btn {
+    /* Additional styles for the button */
+    display: block; /* Change display to block to center the button */
+    margin: 0 auto; /* Automatically centers the button horizontally */
+    text-align: center; /* Centers the text inside the button */
+  }
+
+  .custom-navbar .nav-dropdown {
+    /* Additional styles for NavDropdown */
+    display: block; /* Change display to block to center the dropdown */
+    margin: 0 auto; /* Automatically centers the dropdown horizontally */
+    text-align: center; /* Centers the text inside the dropdown */
+  }
+  .custom-navdropdown1a {
+    /* Adjust the height or any other styles as needed */
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: none;
+    text-align: center;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    background-color: lightgrey;
+  }
+  .custom-navdropdown1b {
+    /* Adjust the height or any other styles as needed */
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    text-align: center;
+    font-weight: none;
+  }
+  .custom-navdropdownheader {
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-navdropdown2 {
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .custom-navbartitle {
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  /* FEEDBACK FORM */
+  .custom-feedbackformlabel {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: inline-start;
+  }
+  .custom-feedbackformfield {
+    font-size: 16px;
+    max-width: 310px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+  .custom-feedbackformbutton {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+    float: inline-end;
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+  /* NEWSLETTER */
+  .custom-newsletterform {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 50px;
+  }
+  .custom-newsletterfield {
+    font-size: 16px;
+    width: 300px;
+    margin-left: 15px;
+  }
+  .custom-newsletterbutton {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+    margin-top: 10px;
+    float: inline-end;
+  }
+  .custom-hfour {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+  }
+  .custom-rowfiller {
+    min-height: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: fit-content;
+  }
+  .custom-newsletterimage {
+    margin-top: -25px;
+    width: 100vw;
+    height: 240px;
+    object-fit: cover;
+    opacity: 30%;
+  }
+  .custom-newslettertitle {
+    position: relative;
+    color: black;
+    width: 300px;
+  }
+  .custom-newsletterspan1 {
+    position: absolute;
+    font-size: 22px;
+    font-weight: bold;
+    bottom: 240px;
+    margin-left: 60px;
+    width: 100%;
+  }
+  .custom-newsletterspan2 {
+    position: absolute;
+    font-size: 16px;
+    bottom: 190px;
+    margin-left: 60px;
+    width: 100%;
+  }
+  .custom-newsletterrow {
+    min-height: 280px;
+    margin-top: 70px;
+    margin-bottom: -50px;
+    width: 110vw;
+    margin-left: -70px;
+  }
+
+  /* MAIN PAGE BOOKING STEPS */
+
+  .custom-bookingsteps {
+    max-height: 400px;
+    max-width: 400px;
+  }
+  .custom-bookingstrong {
+    font-size: 20px;
+  }
+  .custom-bookingdiv {
+    min-height: 300px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  /* MAIN PAGE HEALTH INTEREST CARDS */
+
+  .custom-healthinterestcard {
+    width: 150px;
+    border-style: none;
+    height: 155px;
+  }
+  .custom-healthinterestbody {
+    background-color: #1165a0;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-healthinterestimage {
+    max-height: 60%;
+    max-width: 60%;
+    margin-left: 0%;
+    margin-top: 15%;
+    filter: invert(100);
+  }
+  .custom-healthinteresttitle {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    margin-left: -25px;
+    margin-right: 5px;
+  }
+  .custom-healthinterestcol {
+    max-width: 160px;
+  }
+  .custom-takechargerow {
+    min-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .custom-takechargeimage {
+    margin-top: 30px;
+    max-height: 500px;
+  }
+  .custom-hfive {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  .custom-specialistcountbtn:disabled {
+    background-color: #1165a0;
+    border-color: #1165a0;
+    margin-top: 5px;
+    font-size: 18px;
+    color: white;
+  }
+
+  /* MAIN PAGE CAROUSEL */
+
+  .custom-maincarouseldiv {
+    position: relative;
+    width: 100vw;
+    height: 200px;
+    margin-bottom: 100px;
+    padding: 0px;
+    margin-left: -20px;
+  }
+  .custom-maincarouselimage {
+    margin-top: -10px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-left: -90px;
+  }
+  .custom-maincarouseldiv2 {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    width: 300px;
+  }
+
+  /* MAIN PAGE SEARCH BOX */
+
+  .custom-searchboxform {
+    margin-top: 30px;
+  }
+  .custom-searchboxfield {
+    font-size: 16px;
+    height: 50px;
+    width: 300px;
+  }
+  .custom-searchboxbutton {
+    margin-top: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+  }
+  .custom-hone {
+    font-size: 26px;
+    font-weight: normal;
+    text-shadow: 0 0 10px #ffffff, /* Green glow */ 0 0 20px #ffffff,
+      0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff,
+      0 0 70px #ffffff;
+  }
+  /* SPECIALIST CARD*/
+
+  .custom-specialistcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    margin-left: 25px;
+    min-height: 430px;
+    margin-bottom: 10px;
+  }
+  .custom-specialistcardverifiedbutton {
+    height: 16px;
+    max-width: max-content;
+    background-color: maroon;
+    font-size: 12px;
+    border-color: maroon;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .custom-specialistcardrow {
+    max-height: 40px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  .custom-specialistcardlink {
+    text-decoration: none;
+  }
+  .custom-specialistcardtitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 3px;
+  }
+  .custom-specialistcardhr {
+    max-width: 80%;
+    align-items: center;
+    margin-left: 25px;
+    margin-top: -7px;
+  }
+  .custom-specialistcardrow2 {
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin-left: 1px;
+    margin-top: 5px;
+  }
+  .custom-specialistcardspecialty:disabled {
+    max-width: max-content;
+    font-size: 13px;
+    background-color: white;
+    border-color: #fea416;
+    color: black;
+    border-radius: 1em 1em 1em 1em;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-specialistcardrow3 {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-specialistcardimg {
+    max-height: 200px;
+    max-width: 250px;
+    min-width: 150px;
+  }
+  .custom-specialistcardrow4 {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+  }
+  .custom-specialistcardprofilebutton {
+    background-color: black;
+    border-color: black;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .custom-specialistcardapptbutton2 {
+    background-color: white;
+    border-color: #1165a0;
+    color: #1165a0;
+    font-size: 16px;
+    width: 100%;
+  }
+  /* SPECIALIST SEARCH BAR*/
+  .custom-specialistsearchbarcontainer {
+    margin-left: 10px;
+  }
+  .custom-specialistsearchbarrow0 {
+    margin-bottom: -10px;
+  }
+  .custom-specialistsearchbarrow {
+    margin-bottom: -10px;
+  }
+  .custom-specialistsearchbarrow2 {
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .custom-specialistsearchbarfield1 {
+    width: 280px;
+  }
+  .custom-specialistsearchbarfield2 {
+    width: 280px;
+  }
+  .custom-specialistsearchbarfield3 {
+    width: 280px;
+  }
+  .custom-specialistsearchbarfield4 {
+    width: 280px;
+  }
+  .custom-specialistsearchbardoctorfield {
+    font-size: 16px;
+    width: 280px;
+    border-color: black;
+  }
+  /* SPECIALIST SCREEN*/
+  .custom-specialistscreencontainer {
+    height: 100px;
+  }
+  .custom-specialistscreenspan {
+    font-weight: none;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .custom-specialistscreenrestartbtn {
+    font-size: 16px;
+    font-weight: bold;
+    float: inline-end;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: black;
+    border-color: black;
+  }
+  .custom-hone2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-specialistscreenrow {
+    display: flex;
+  }
+  /* SPECIALIST DETAIL */
+  .custom-specialistdetailbackbtn {
+    background-color: black;
+    border-color: black;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 15px;
+  }
+  .custom-htwo {
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  .custom-specialistdetailcontainer {
+    border-width: 2px;
+    border-style: solid;
+  }
+  .custom-specialistdetailimage {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1em 1em 1em 1em;
+    border-color: grey;
+    max-height: 256px;
+    max-width: 320px;
+    min-width: 192px;
+    margin-bottom: 15px;
+  }
+  .custom-specialistdetailverifiedbtn {
+    border-radius: 1em 1em 1em 1em;
+    max-width: max-content;
+    background-color: white;
+    font-size: 20px;
+    color: maroon;
+    border-color: maroon;
+    display: absolute;
+    align-items: center;
+    margin-left: auto;
+    margin-top: -5px;
+  }
+  .custom-specialistdetailcol1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .custom-specialistdetailappointmentbutton1 {
+    background-color: lightgrey;
+    border-color: lightgrey;
+    font-size: 16px;
+    border-radius: 1em 1em 1em 1em;
+    display: block;
+    width: 100%;
+  }
+  .custom-specialistdetailappointmentbutton2 {
+    font-size: 16px;
+    border-radius: 1em 1em 1em 1em;
+    background-color: #1165a0;
+    border-color: #1165a0;
+    display: block;
+    width: 100%;
+  }
+  .custom-hthree {
+    margin-top: 5px;
+    margin-bottom: -5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-specialistdetailwriteupspan {
+    font-size: 16px;
+  }
+  .custom-hfive2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .custom-hfive3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 6px;
+  }
+  .custom-specialistdetailclinictitle {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+    text-decoration: underline;
+  }
+  .custom-specialistdetailclinicdetails {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  .custom-specialistdetailclinicdropdownmenu {
+    max-width: 300px;
+    font-size: 14px;
+    white-space: normal;
+  }
+  .custom-specialistdetailclinicdropdownitem {
+    white-space: normal;
+  }
+  .custom-specialistdetailrow {
+    font-size: 20px;
+  }
+  .custom-specialistdetailcol {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+    vertical-align: center;
+    flex-wrap: wrap;
+  }
+  .custom-specialistdetailspan {
+    font-size: 22px;
+  }
+  /* SPECIALIST DETAIL */
+  .custom-appointmentscreenbutton {
+    background-color: red;
+    border-color: red;
+    font-weight: bold;
+  }
+  .customModal {
+    position: fixed;
+  }
+  .custom-modalbody {
+    max-height: 700px;
+    overflow-y: auto;
+  }
+  .customModal .modal-dialog {
+    max-width: 1000px;
+  }
+
+  .customModal .modal-content {
+    width: 100%;
+  }
+  .custom-modaltitle {
+    font-size: 18px;
+  }
+  /* APPT CARD */
+  .custom-apptcard {
+    margin-top: 5px;
+  }
+  .custom-apptcardtitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .custom-apptcardclinictitle {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+    text-decoration: underline;
+  }
+  .custom-apptcardclinicdetails {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .custom-apptcardclinicdetails1 {
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 5px;
+  }
+  .custom-apptcardclinicdropdownmenu {
+    max-width: 300px;
+    font-size: 14px;
+    white-space: normal;
+  }
+  .custom-apptcardclinicdropdownitem {
+    white-space: normal;
+  }
+  .custom-apptcarddropdowntoggle {
+    background-color: black;
+    border-color: black;
+  }
+  .custom-apptcardrow {
+    font-size: 20px;
+  }
+  .custom-apptcardarrowbtn {
+    background-color: black;
+    border-color: black;
+    margin-left: -10px;
+    margin-top: 110px;
+  }
+  .custom-apptcardarrowbtn:disabled {
+    background-color: grey;
+    border-color: grey;
+  }
+  .custom-apptcardcol1 {
+    flex: 1;
+    text-align: center;
+  }
+  .custom-apptcardcol2 {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+  }
+  .custom-apptcardcol3 {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+  }
+  .custom-apptcardrow2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .custom-apptcarddaybtn1 {
+    height: 40px;
+    width: 60vw;
+    font-size: 12px;
+    border-color: black;
+    background-color: black;
+    margin-bottom: -5px;
+    margin-left: -5px;
+    justify-content: center;
+  }
+  .custom-apptcarddaybtn1:disabled {
+    height: 40px;
+    width: 60vw;
+    font-size: 12px;
+    border-color: grey;
+    background-color: grey;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+  .custom-apptcarddaybtn2 {
+    height: 40px;
+    font-size: 12px;
+    width: 60vw;
+    border-color: #1165a0;
+    background-color: #1165a0;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+  .custom-apptcarddaybtn2:disabled {
+    height: 40px;
+    font-size: 12px;
+    width: 60vw;
+    border-color: grey;
+    background-color: grey;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+  .custom-apptcardcol2 {
+    font-size: 24px;
+    position: relative;
+  }
+  .custom-apptcardconfirmapptbtn {
+    background-color: black;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+  }
+  .custom-apptcardconfirmapptbtn:disabled {
+    background-color: grey;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-color: grey;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+  }
+  .custom-apptcardclinicdetails2 {
+    font-weight: lighter;
+    margin-top: 5px;
+    margin-left: 20px;
+    overflow-x: hidden;
+  }
+  .custom-apptcardchangeapptbtn {
+    background-color: black;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    right: 5px;
+  }
+  .custom-apptcardapptformlabel {
+    font-size: 16px;
+    font-weight: lighter;
+    float: inline-start;
+    margin-bottom: -5px;
+  }
+  .custom-apptcardapptformfield {
+    font-size: 16px;
+    width: max-content;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .custom-apptcardsubmitbtn2 {
+    background-color: #1165a0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    width: 200px;
+    right: 10px;
+    bottom: 0px;
+  }
+  .custom-apptcardsubmitbtn2:disabled {
+    background-color: #1165a0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    width: 200px;
+    right: 10px;
+    bottom: 0px;
+  }
+  .custom-apptcardcol7 {
+    position: relative;
+    margin-top: 40px;
+  }
+  .custom-apptcardvalidprompts {
+    color: red;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  /* .custom-navbarbtn{
+    margin: 10px;
+    border: solid;
+    border-width: 1px;
+  } */
+  .custom-navbarbtn {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+    color: black;
+    width: 95%;
+  }
+  .custom-navbarbtn2 {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+    color: #1165a0;
+    width: 95%;
+  }
+  .custom-navbarbtn3 {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: #1165a0;
+    border-color: #1165a0;
+    color: white;
+    border-radius: 7px;
+    width: 95%;
+    text-align: center;
+  }
+  .custom-navbarbtn:hover {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    width: 95%;
+    background-color: #1165a0;
+    color: white;
+  }
+  .custom-navbarbtn2:hover {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    width: 95%;
+    background-color: #1165a0;
+    color: white;
+  }
+  .custom-navbarcontainer {
+    height: 60px; /* Example height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .custom-navbarspan {
+    font-size: 14px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-navbarspan2 {
+    font-size: 14px;
+    color: #1165a0;
+    font-weight: normal;
+  }
+  .custom-navbarspan:hover {
+    font-size: 14px;
+    color: white;
+    font-weight: normal;
+  }
+  .custom-navbarspan2:hover {
+    font-size: 14px;
+    color: white;
+    font-weight: normal;
+  }
+  .custom-navbarspan3 {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+  }
+  .custom-navbariconsize {
+    font-size: 12px;
+  }
+  /* BLOG SCREEN*/
+  .custom-blogscreencontainer {
+    height: 100px;
+  }
+  .custom-blogscreenheader {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  /* BLOG CARD*/
+  .custom-blogcard {
+    border-style: solid;
+    height: 200px;
+  }
+  .custom-blogcardlink {
+    text-decoration: none;
+    color: black;
+  }
+  .custom-blogcardrow {
+    height: 50px;
+    width: 80vw;
+    margin-left: 1px;
+  }
+  .custom-blogcardimg {
+    width: 100px;
+  }
+  .custom-blogcardcol1 {
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    vertical-align: middle;
+    flex-direction: column;
+  }
+  .custom-blogcardcol2 {
+    width: 70%;
+  }
+  .custom-blogcardtext {
+    margin-top: 8px;
+    margin-bottom: 5px;
+  }
+  .custom-blogcardbtn:disabled {
+    margin-top: -10px;
+    border-color: #1165a0;
+    color: #1165a0;
+    background-color: white;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .custom-blogcardspan1 {
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+  }
+  .custom-blogcardspan2 {
+    font-size: 13px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-blogcardp1 {
+    font-size: 12px;
+    color: black;
+    font-weight: normal;
+  }
+  /* BLOG AUTHOR*/
+
+  .custom-blogauthorcard {
+    margin-top: 10px;
+  }
+  .custom-blogauthorspan1 {
+    font-size: 12px;
+  }
+  .custom-blogauthorcol1 {
+    max-width: fit-content;
+  }
+  .custom-blogauthorimg {
+    margin-left: 40px;
+    border-radius: 100%;
+    max-width: 200px;
+  }
+  .custom-blogauthorcol2 {
+    max-width: fit-content;
+  }
+  .custom-blogauthorp1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-blogauthorspan2 {
+    font-size: 16px;
+  }
+
+  /* BLOG DETAIL*/
+  .custom-blogdetailcontainer {
+    height: 80px;
+  }
+  .custom-blogdetailbackbtn {
+    font-size: 14px;
+  }
+  .custom-blogdetailrow1 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .custom-blogdetailbtn:disabled {
+    font-size: 16px;
+    max-width: 140px;
+    border-color: #1165a0;
+    color: #1165a0;
+    background-color: white;
+  }
+  .custom-blogdetailh1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  .custom-blogdetailp1 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+  .custom-blogdetailp2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: -15px;
+  }
+
+  .custom-blogdetailcol1 {
+    justify-content: center;
+  }
+  .custom-blogdetailimg {
+    max-width: 300px;
+    min-height: 100px;
+  }
+  .custom-blogdetailrow2 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .custom-blogdetailp3 {
+    font-size: 16px;
+  }
+  .custom-blogdetailrow3 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+}
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/* Styles for screens greater than 768px but less than 1028px (Tablet) */
+@media (min-width: 769px) and (max-width: 1028px) {
+  body {
+    overflow-x: hidden; /* Lock scrolling horizontally */
+  }
+
+  .custom-navbarbtn {
+    margin: 10px;
+    border: solid;
+    border-width: 1px;
+  }
+  .custom-navbarlogo {
+    color: #1165a0;
+    height: 60px;
+    width: 180px;
+    margin-bottom: 10px;
+  }
+  .custom-navbarspan {
+    color: #1165a0;
+    font-weight: bold;
+    font-size: 40px;
+  }
+  .custom-navbar {
+    min-height: 100px;
+    font-size: 12px;
+    opacity: 97%;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 100px;
+  }
+
+  .custom-navbar .btn {
+    /* Additional styles for the button */
+    display: block; /* Change display to block to center the button */
+    margin: 0 auto; /* Automatically centers the button horizontally */
+    text-align: center; /* Centers the text inside the button */
+  }
+
+  .custom-navbar .nav-dropdown {
+    /* Additional styles for NavDropdown */
+    display: block; /* Change display to block to center the dropdown */
+    margin: 0 auto; /* Automatically centers the dropdown horizontally */
+    text-align: center; /* Centers the text inside the dropdown */
+  }
+  .custom-navdropdown1a {
+    /* Adjust the height or any other styles as needed */
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: none;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    background-color: lightgrey;
+  }
+  .custom-navdropdown1b {
+    /* Adjust the height or any other styles as needed */
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: none;
+  }
+  .custom-navdropdownheader {
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-navdropdown2 {
+    margin: 10px;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .custom-navbartitle {
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  /* FEEDBACK FORM */
+  .custom-feedbackformlabel {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: inline-start;
+  }
+  .custom-feedbackformfield {
+    font-size: 14px;
+    min-width: 110px;
+    max-width: 180px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .custom-feedbackformbutton {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+    float: inline-end;
+    margin-top: 10px;
+  }
+  /* NEWSLETTER */
+  .custom-newsletterform {
+    position: absolute;
+    bottom: 100px;
+    margin-left: 65px;
+  }
+  .custom-newsletterfield {
+    font-size: 14px;
+    width: 280px;
+    margin-left: 15px;
+  }
+  .custom-newsletterbutton {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+    margin-top: 10px;
+    float: inline-end;
+  }
+  .custom-hfour {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+  }
+  .custom-rowfiller {
+    min-height: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: fit-content;
+  }
+  .custom-newsletterimage {
+    margin-top: -25px;
+    max-height: 245px;
+    opacity: 30%;
+    height: 240px;
+    object-fit: cover;
+  }
+  .custom-newslettertitle {
+    position: relative;
+    color: black;
+    width: 300px;
+  }
+  .custom-newsletterspan1 {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    bottom: 230px;
+    margin-left: 80px;
+    width: 100%;
+  }
+  .custom-newsletterspan2 {
+    position: absolute;
+    font-size: 14px;
+    bottom: 190px;
+    margin-left: 80px;
+    width: 100%;
+  }
+  .custom-newsletterrow {
+    min-height: 280px;
+    margin-top: 70px;
+    margin-bottom: -50px;
+    width: 110vw;
+    margin-left: -70px;
+  }
+
+  /* MAIN PAGE BOOKING STEPS */
+
+  .custom-bookingsteps {
+    max-height: 400px;
+    max-width: 400px;
+  }
+  .custom-bookingstrong {
+    font-size: 16px;
+  }
+  .custom-bookingdiv {
+    min-height: 300px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  /* MAIN PAGE HEALTH INTEREST CARDS */
+
+  .custom-healthinterestcard {
+    width: 150px;
+    border-style: none;
+    height: 150px;
+  }
+  .custom-healthinterestbody {
+    background-color: #1165a0;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-healthinterestimage {
+    max-height: 60%;
+    max-width: 60%;
+    margin-left: 0%;
+    margin-top: 15%;
+    filter: invert(100);
+  }
+  .custom-healthinteresttitle {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    margin-left: -35px;
+    margin-right: 5px;
+  }
+  .custom-healthinterestcol {
+    max-width: 160px;
+  }
+  .custom-takechargerow {
+    min-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .custom-takechargeimage {
+    margin-top: 30px;
+    max-height: 500px;
+  }
+  .custom-hfive {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  .custom-specialistcountbtn:disabled {
+    background-color: #1165a0;
+    border-color: #1165a0;
+    margin-top: 5px;
+    font-size: 14px;
+    color: white;
+  }
+
+  /* MAIN PAGE CAROUSEL */
+
+  .custom-maincarouseldiv {
+    position: relative;
+    width: 100vw;
+    height: 200px;
+    margin-bottom: 100px;
+    padding: 0px;
+    margin-left: -20px;
+  }
+  .custom-maincarouselimage {
+    margin-top: -10px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-left: -90px;
+  }
+  .custom-maincarouseldiv2 {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    width: 300px;
+  }
+
+  /* MAIN PAGE SEARCH BOX */
+
+  .custom-searchboxform {
+    margin-top: 30px;
+  }
+  .custom-searchboxfield {
+    font-size: 16px;
+    height: 50px;
+    width: 300px;
+  }
+  .custom-searchboxbutton {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+  }
+  .custom-hone {
+    font-size: 26px;
+    font-weight: normal;
+    text-shadow: 0 0 10px #ffffff, /* Green glow */ 0 0 20px #ffffff,
+      0 0 30px #ffffff, 0 0 40px #ffffff, 0 0 50px #ffffff, 0 0 60px #ffffff,
+      0 0 70px #ffffff;
+  }
+  /* SPECIALIST CARD*/
+
+  .custom-specialistcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    margin-left: 25px;
+    min-height: 430px;
+    margin-bottom: 10px;
+  }
+  .custom-specialistcardverifiedbutton {
+    height: 16px;
+    max-width: max-content;
+    background-color: maroon;
+    font-size: 12px;
+    border-color: maroon;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .custom-specialistcardrow {
+    max-height: 40px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  .custom-specialistcardlink {
+    text-decoration: none;
+  }
+  .custom-specialistcardtitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 3px;
+  }
+  .custom-specialistcardhr {
+    max-width: 80%;
+    align-items: center;
+    margin-left: 25px;
+    margin-top: -7px;
+  }
+  .custom-specialistcardrow2 {
+    max-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin-left: 1px;
+    margin-top: 5px;
+  }
+  .custom-specialistcardspecialty:disabled {
+    max-width: max-content;
+    font-size: 13px;
+    background-color: white;
+    border-color: #fea416;
+    color: black;
+    border-radius: 1em 1em 1em 1em;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-specialistcardrow3 {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-specialistcardimg {
+    max-height: 200px;
+    max-width: 250px;
+    min-width: 150px;
+  }
+  .custom-specialistcardrow4 {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+  }
+  .custom-specialistcardprofilebutton {
+    background-color: black;
+    border-color: black;
+    font-size: 14px;
+    width: 100%;
+    min-width: 70px;
+  }
+  .custom-specialistcardapptbutton2 {
+    background-color: white;
+    border-color: #1165a0;
+    color: #1165a0;
+    font-size: 14px;
+    max-width: 120px;
+    width: 100%;
+  }
+  /* SPECIALIST SEARCH BAR*/
+  .custom-specialistsearchbarcontainer {
+    margin-left: 10px;
+  }
+  .custom-specialistsearchbarrow0 {
+    margin-bottom: -10px;
+  }
+  .custom-specialistsearchbarrow {
+    margin-bottom: -10px;
+  }
+  .custom-specialistsearchbarrow2 {
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .custom-specialistsearchbarfield1 {
+    width: 70vw;
+  }
+  .custom-specialistsearchbarfield2 {
+    width: 70vw;
+  }
+  .custom-specialistsearchbarfield3 {
+    width: 70vw;
+  }
+  .custom-specialistsearchbarfield4 {
+    width: 70vw;
+  }
+  .custom-specialistsearchbardoctorfield {
+    font-size: 16px;
+    width: 70vw;
+    border-color: black;
+  }
+  /* SPECIALIST SCREEN*/
+  .custom-specialistscreencontainer {
+    height: 100px;
+  }
+  .custom-specialistscreenspan {
+    font-weight: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .custom-specialistscreenrestartbtn {
+    font-size: 16px;
+    font-weight: bold;
+    float: inline-end;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: black;
+    border-color: black;
+  }
+  .custom-hone2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-specialistscreenrow {
+    display: flex;
+  }
+  /* SPECIALIST DETAIL */
+  .custom-specialistdetailbackbtn {
+    background-color: black;
+    border-color: black;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 15px;
+  }
+  .custom-htwo {
+    font-size: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  .custom-specialistdetailcontainer {
+    border-width: 2px;
+    border-style: solid;
+  }
+  .custom-specialistdetailimage {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1em 1em 1em 1em;
+    border-color: grey;
+    max-height: 171px;
+    max-width: 320px;
+    min-width: 128px;
+    margin-bottom: 15px;
+  }
+  .custom-specialistdetailverifiedbtn {
+    border-radius: 1em 1em 1em 1em;
+    max-width: max-content;
+    background-color: white;
+    font-size: 20px;
+    color: maroon;
+    border-color: maroon;
+    display: absolute;
+    align-items: center;
+    margin-left: auto;
+    margin-top: -5px;
+  }
+  .custom-specialistdetailcol1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .custom-specialistdetailappointmentbutton1 {
+    background-color: lightgrey;
+    border-color: lightgrey;
+    font-size: 14px;
+    border-radius: 1em 1em 1em 1em;
+    display: block;
+    min-width: 130px;
+    margin-left: -50px;
+  }
+  .custom-specialistdetailappointmentbutton2 {
+    font-size: 14px;
+    border-radius: 1em 1em 1em 1em;
+    background-color: #1165a0;
+    border-color: #1165a0;
+    display: block;
+    min-width: 130px;
+
+    margin-left: -50px;
+  }
+  .custom-hthree {
+    margin-top: 5px;
+    margin-bottom: -5px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .custom-specialistdetailwriteupspan {
+    font-size: 16px;
+  }
+  .custom-hfive2 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .custom-hfive3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 6px;
+  }
+  .custom-specialistdetailclinictitle {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+    text-decoration: underline;
+  }
+  .custom-specialistdetailclinicdetails {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  .custom-specialistdetailclinicdropdownmenu {
+    max-width: 300px;
+    font-size: 14px;
+    white-space: normal;
+  }
+  .custom-specialistdetailclinicdropdownitem {
+    white-space: normal;
+    min-width: 180px;
+    font-size: 14px;
+  }
+  .custom-specialistdetailrow {
+    font-size: 20px;
+  }
+  .custom-specialistdetailcol {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+    vertical-align: center;
+    flex-wrap: wrap;
+  }
+  .custom-specialistdetailspan {
+    font-size: 22px;
+  }
+  .custom-specialistdetailchangeclinicbtn {
+    margin-left: -18px;
+    font-size: 12px;
+  }
+  /* APPT MODAL */
+  .custom-appointmentscreenbutton {
+    background-color: red;
+    border-color: red;
+    font-weight: bold;
+  }
+  .customModal {
+    position: fixed;
+  }
+  .custom-modalbody {
+    max-height: 700px;
+    overflow-y: auto;
+  }
+  .customModal .modal-dialog {
+    max-width: 1000px;
+  }
+
+  .customModal .modal-content {
+    width: 100%;
+  }
+  .custom-modaltitle {
+    font-size: 18px;
+  }
+  /* APPT CARD */
+  .custom-apptcard {
+    margin-top: 5px;
+  }
+  .custom-apptcardtitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .custom-apptcardclinictitle {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 5px;
+    text-decoration: underline;
+  }
+  .custom-apptcardclinicdetails {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .custom-apptcardclinicdetails1 {
+    font-size: 16px;
+    font-weight: lighter;
+    margin-top: 5px;
+  }
+  .custom-apptcardclinicdropdownmenu {
+    max-width: 300px;
+    font-size: 14px;
+    white-space: normal;
+  }
+  .custom-apptcardclinicdropdownitem {
+    white-space: normal;
+  }
+  .custom-apptcarddropdowntoggle {
+    background-color: black;
+    border-color: black;
+    margin-left: -30px;
+    font-size: 14px;
+  }
+  .custom-apptcardrow {
+    font-size: 20px;
+  }
+  .custom-apptcardarrowbtn {
+    background-color: black;
+    border-color: black;
+    margin-left: -10px;
+    margin-top: 110px;
+  }
+  .custom-apptcardarrowbtn:disabled {
+    background-color: grey;
+    border-color: grey;
+  }
+  .custom-apptcardcol1 {
+    flex: 1;
+    text-align: center;
+  }
+  .custom-apptcardcol2 {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+  }
+  .custom-apptcardcol3 {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+    flex-direction: column;
+  }
+  .custom-apptcardrow2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .custom-apptcarddaybtn1 {
+    height: 40px;
+    width: 60vw;
+    font-size: 12px;
+    border-color: black;
+    background-color: black;
+    margin-bottom: -5px;
+    margin-left: -5px;
+    justify-content: center;
+  }
+  .custom-apptcarddaybtn1:disabled {
+    height: 40px;
+    width: 60vw;
+    font-size: 12px;
+    border-color: grey;
+    background-color: grey;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+  .custom-apptcarddaybtn2 {
+    height: 40px;
+    font-size: 12px;
+    width: 60vw;
+    border-color: #1165a0;
+    background-color: #1165a0;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+  .custom-apptcarddaybtn2:disabled {
+    height: 40px;
+    font-size: 12px;
+    width: 60vw;
+    border-color: grey;
+    background-color: grey;
+    margin-bottom: -5px;
+    margin-left: -5px;
+  }
+  .custom-apptcardcol2 {
+    font-size: 24px;
+    position: relative;
+  }
+  .custom-apptcardconfirmapptbtn {
+    background-color: black;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+  }
+  .custom-apptcardconfirmapptbtn:disabled {
+    background-color: grey;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-color: grey;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+  }
+  .custom-apptcardclinicdetails2 {
+    font-weight: lighter;
+    margin-top: 5px;
+    overflow-x: hidden;
+  }
+  .custom-apptcardchangeapptbtn {
+    background-color: black;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    right: 5px;
+  }
+  .custom-apptcardapptformlabel {
+    font-size: 16px;
+    font-weight: lighter;
+    float: inline-start;
+    margin-bottom: -5px;
+  }
+  .custom-apptcardapptformfield {
+    font-size: 16px;
+    width: max-content;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  .custom-apptcardsubmitbtn2 {
+    background-color: #1165a0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    width: 200px;
+    right: 10px;
+    bottom: 0px;
+  }
+  .custom-apptcardsubmitbtn2:disabled {
+    background-color: #1165a0;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    width: 200px;
+    right: 10px;
+    bottom: 0px;
+  }
+  .custom-apptcardcol7 {
+    position: relative;
+    margin-top: 40px;
+  }
+
+  .custom-apptcardvalidprompts {
+    color: red;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .custom-navbarbtn {
+    height: 55px;
+    border: solid;
+    border-width: 1px;
+    min-width: 100px;
+    max-width: 120px;
+    background-color: white;
+    color: black;
+  }
+  .custom-navbarbtn2 {
+    height: 55px;
+    border: solid;
+    border-width: 1px;
+    min-width: 100px;
+    max-width: 140px;
+    background-color: white;
+    color: #1165a0;
+  }
+  .custom-navbarbtn3 {
+    height: 55px;
+    background-color: #1165a0;
+    border-color: #1165a0;
+    vertical-align: middle;
+    border: solid;
+    border-width: 1px;
+    min-width: 100px;
+    max-width: 140px;
+    color: white;
+    border-radius: 7px;
+    margin-left: 5px;
+  }
+  .custom-navbarcontainer {
+    height: 60px; /* Example height */
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: space-between;
+    margin-left: 5px;
+  }
+  .custom-navbarspan {
+    font-size: 14px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-navbarspan2 {
+    font-size: 14px;
+    color: #1165a0;
+    font-weight: normal;
+  }
+  .custom-navbarspan3 {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    line-height: 0.5;
+  }
+  .custom-navbariconsize {
+    font-size: 14px;
+  }
+
+  /* BLOG SCREEN*/
+  .custom-blogscreencontainer {
+    height: 100px;
+  }
+  .custom-blogscreenheader {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  /* BLOG CARD*/
+  .custom-blogcard {
+    border-style: solid;
+    height: 170px;
+  }
+  .custom-blogcardlink {
+    text-decoration: none;
+    color: black;
+  }
+  .custom-blogcardrow {
+    height: 50px;
+    width: 105%;
+    margin-left: 1px;
+  }
+  .custom-blogcardimg {
+    width: 120px;
+    margin-left: auto;
+  }
+  .custom-blogcardcol1 {
+    width: 30%;
+    justify-content: center;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    flex-direction: column;
+  }
+  .custom-blogcardcol2 {
+    width: 70%;
+  }
+  .custom-blogcardbtn:disabled {
+    margin-top: -10px;
+    border-color: #1165a0;
+    color: #1165a0;
+    background-color: white;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .custom-blogcardtext {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .custom-blogcardspan1 {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+  }
+  .custom-blogcardspan2 {
+    font-size: 14px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-blogcardp1 {
+    font-size: 14px;
+    color: black;
+    font-weight: normal;
+  }
+  /* BLOG AUTHOR*/
+
+  .custom-blogauthorcard {
+    margin-top: 10px;
+  }
+  .custom-blogauthorspan1 {
+    font-size: 14px;
+  }
+  .custom-blogauthorcol1 {
+    max-width: fit-content;
+  }
+  .custom-blogauthorimg {
+    margin-left: 20px;
+    border-radius: 100%;
+    max-width: 200px;
+  }
+  .custom-blogauthorcol2 {
+    max-width:500px;
+    margin-left:50px;
+  }
+  .custom-blogauthorp1 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .custom-blogauthorspan2 {
+    font-size: 14px;
+  }
+
+  /* BLOG DETAIL*/
+  .custom-blogdetailcontainer {
+    height: 80px;
+  }
+  .custom-blogdetailbackbtn {
+    font-size: 14px;
+  }
+  .custom-blogdetailrow1 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .custom-blogdetailbtn:disabled {
+    font-size: 16px;
+    max-width: 140px;
+    border-color: #1165a0;
+    color: #1165a0;
+    background-color: white;
+  }
+  .custom-blogdetailh1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  .custom-blogdetailp1 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+  .custom-blogdetailp2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: -15px;
+  }
+
+  .custom-blogdetailcol1 {
+    justify-content: center;
+  }
+  .custom-blogdetailimg {
+    max-width: 300px;
+    min-height: 100px;
+  }
+  .custom-blogdetailrow2 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .custom-blogdetailp3 {
+    font-size: 16px;
+  }
+  .custom-blogdetailrow3 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+}
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/*------------------------------------------------------*/
+/* Styles for screens greater than 1028px (Desktop) */
+@media (min-width: 1029px) {
+  body {
+    overflow-x: hidden; /* Lock scrolling horizontally */
+  }
+  .custom-navbarlogo {
+    color: #1165a0;
+    height: 80px;
+    width: 240px;
+    margin-bottom: 10px;
+  }
+  .custom-navbarspan {
+    color: #1165a0;
+    font-weight: bold;
+    font-size: 40px;
+  }
+  .custom-navbar {
+    min-height: 100px;
+    font-size: 12px;
+    margin-left: 50px;
+    margin-right: 30px;
+    opacity: 97%;
+  }
+  .custom-navbar .btn {
+    /* Additional styles for the button */
+    display: block; /* Change display to block to center the button */
+    margin: 0 auto; /* Automatically centers the button horizontally */
+    text-align: center; /* Centers the text inside the button */
+  }
+
+  .custom-navbar .nav-dropdown {
+    /* Additional styles for NavDropdown */
+    display: block; /* Change display to block to center the dropdown */
+    margin: 0 auto; /* Automatically centers the dropdown horizontally */
+    text-align: center; /* Centers the text inside the dropdown */
+  }
+  .custom-navdropdown1a {
+    /* Adjust the height or any other styles as needed */
+    margin: 10px;
+    font-size: 18px;
+    color: black;
+    font-weight: none;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    background-color: lightgrey;
+  }
+  .custom-navdropdown1b {
+    /* Adjust the height or any other styles as needed */
+    margin: 10px;
+    font-size: 18px;
+    color: black;
+    font-weight: none;
+  }
+  .custom-navdropdownheader {
+    font-size: 18px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-navdropdown2 {
+    margin: 10px;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    margin-top: 0;
+    border: none;
+    box-shadow: none;
+  }
+  .custom-navbartitle {
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  /* FEEDBACK FORM */
+  .custom-feedbackformlabel {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: inline-end;
+  }
+  .custom-feedbackformfield {
+    font-size: 18px;
+    max-width: 265px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+  }
+  .custom-feedbackformbutton {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+    float: inline-end;
+  }
+
+  /* NEWSLETTER */
+  .custom-newsletterform {
+    position: absolute;
+    bottom: 80px;
+  }
+  .custom-newsletterfield {
+    font-size: 18px;
+    width: 500px;
+  }
+  .custom-newsletterbutton {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+    margin-top: 5px;
+    float: inline-end;
+  }
+  .custom-hfour {
+    font-weight: bold;
+    text-align: center;
+  }
+  .custom-rowfiller {
+    min-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    width: fit-content;
+  }
+  .custom-newsletterimage {
+    margin-top: -20px;
+    max-height: 500px;
+    opacity: 30%;
+  }
+  .custom-newslettertitle {
+    position: relative;
+    left: 25%;
+    color: black;
+    width: 800px;
+  }
+  .custom-newsletterspan1 {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    bottom: 220px;
+  }
+  .custom-newsletterspan2 {
+    position: absolute;
+    font-size: 18px;
+    bottom: 175px;
+  }
+  .custom-newsletterrow {
+    min-height: 300px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  /* MAIN PAGE BOOKING STEPS */
+
+  .custom-bookingsteps {
+    max-height: 400px;
+    max-width: 400px;
+  }
+  .custom-bookingstrong {
+    font-size: 24px;
+  }
+  .custom-bookingdiv {
+    min-height: 300px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  /* MAIN PAGE HEALTH INT CARD */
+
+  .custom-healthinterestcard {
+    width: 140px;
+    border-style: none;
+    height: 130px;
+  }
+  .custom-healthinterestbody {
+    background-color: #1165a0;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-healthinterestimage {
+    max-height: 70%;
+    max-width: 70%;
+    margin-left: 0%;
+    margin-top: 15%;
+    filter: invert(100);
+  }
+  .custom-healthinteresttitle {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: black;
+  }
+  .custom-takechargerow {
+    min-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .custom-takechargeimage {
+    margin-top: -20px;
+    max-height: 500px;
+  }
+  .custom-specialistcountbtn:disabled {
+    background-color: #1165a0;
+    border-color: #1165a0;
+    margin-top: 30px;
+    font-size: 24px;
+    color: white;
+  }
+  /* MAIN PAGE CAROUSEL */
+
+  .custom-maincarouseldiv {
+    position: relative;
+    width: 100%;
+    max-height: 820px;
+  }
+  .custom-maincarouselimage {
+    margin-top: -20px;
+  }
+  .custom-maincarouseldiv2 {
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    width: 800px;
+  }
+
+  /* MAIN PAGE SEARCH BOX */
+  .custom-searchboxform {
+    margin-top: 30px;
+    display: flex;
+    max-width: 800px;
+  }
+  .custom-searchboxfield {
+    font-size: 24px;
+    height: 80px;
+    margin-left: 30px;
+    margin-right: 10px;
+    max-width: 600px;
+  }
+  .custom-searchboxbutton {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1165a0;
+    border-color: #1165a0;
+  }
+
+  /* SPECIALIST CARD */
+  .custom-specialistcard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 310px;
+    height: 400px;
+    margin-bottom: 10px;
+  }
+  .custom-specialistcardverifiedbutton {
+    height: 16px;
+    max-width: max-content;
+    background-color: maroon;
+    font-size: 12px;
+    border-color: maroon;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .custom-specialistcardrow {
+    max-height: 40px;
+    margin-top: 5px;
+    text-align: center;
+  }
+  .custom-specialistcardlink {
+    text-decoration: none;
+  }
+  .custom-specialistcardtitle {
+    font-size: 19px;
+    font-weight: bold;
+    margin-top: 5px;
+  }
+  .custom-specialistcardhr {
+    max-width: 324px;
+    margin-left: 7px;
+    margin-top: -7px;
+  }
+  .custom-specialistcardrow2 {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    margin-left: 1px;
+  }
+  .custom-specialistcardspecialty:disabled {
+    width: 300px;
+    max-width: max-content;
+    font-size: 13px;
+    background-color: white;
+    border-color: #fea416;
+    color: black;
+    border-radius: 1em 1em 1em 1em;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-specialistcardrow3 {
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .custom-specialistcardimg {
+    max-height: 200px;
+    max-width: 250px;
+    min-width: 150px;
+  }
+  .custom-specialistcardrow4 {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+  }
+  .custom-specialistcardprofilebutton {
+    background-color: black;
+    border-color: black;
+  }
+  .custom-specialistcardapptbutton1 {
+    background-color: lightgrey;
+    border-color: lightgrey;
+  }
+  .custom-specialistcardapptbutton2 {
+    background-color: white;
+    border-color: #1165a0;
+    color: #1165a0;
+  }
+  /* SPECIALIST SEARCH BAR*/
+  .custom-specialistsearchbarcontainer {
+    margin-left: 15px;
+  }
+  .custom-specialistsearchbarrow {
+    margin-bottom: -10px;
+  }
+  .custom-specialistsearchbarrow2 {
+    margin-bottom: 5px;
+  }
+  .custom-specialistsearchbarrow2 {
+    height: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    border-radius: 0.5em 0.5em 0.5em 0.5em;
+    align-items: center;
+  }
+  .custom-specialistsearchbarform {
+    display: flex;
+  }
+  .custom-specialistsearchbarfield1 {
+    width: 300px;
+  }
+  .custom-specialistsearchbarfield2 {
+    width: 300px;
+  }
+  .custom-specialistsearchbarfield3 {
+    width: 195px;
+  }
+  .custom-specialistsearchbarfield4 {
+    width: 195px;
+  }
+  .custom-specialistsearchbardoctorfield {
+    font-size: 16px;
+    width: 205px;
+    border-color: black;
+  }
+  /* SPECIALIST SCREEN*/
+  .custom-specialistscreencontainer {
+    height: 100px;
+  }
+  .custom-specialistscreenspan {
+    font-weight: none;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .custom-specialistscreenrestartbtn {
+    font-size: 20px;
+    font-weight: bold;
+    float: inline-end;
+    background-color: black;
+    border-color: black;
+  }
+  /* SPECIALIST DETAIL */
+  .custom-specialistdetailbackbtn {
+    background-color: black;
+    border-color: black;
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+  }
+  .custom-htwo {
+    font-size: 28px;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  .custom-specialistdetailcontainer {
+    border-width: 2px;
+    border-style: solid;
+  }
+  .custom-specialistdetailimage {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 1em 1em 1em 1em;
+    border-color: grey;
+    max-height: 320px;
+    max-width: 400px;
+    min-width: 240px;
+  }
+  .custom-specialistdetailverifiedbtn {
+    border-radius: 1em 1em 1em 1em;
+    max-width: max-content;
+    background-color: white;
+    font-size: 20px;
+    color: maroon;
+    border-color: maroon;
+    display: absolute;
+    align-items: center;
+    margin-left: auto;
+    margin-top: -5px;
+  }
+  .custom-specialistdetailcol1 {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  .custom-specialistdetailappointmentbutton1 {
+    background-color: lightgrey;
+    display: block;
+    border-color: lightgrey;
+    font-size: 24px;
+    border-radius: 1em 1em 1em 1em;
+  }
+  .custom-specialistdetailappointmentbutton2 {
+    font-size: 24px;
+    display: block;
+    border-radius: 1em 1em 1em 1em;
+    background-color: black;
+    border-color: black;
+  }
+  .custom-specialistdetailwriteupspan {
+    font-size: 20px;
+  }
+  .custom-specialistdetailrow {
+    font-size: 20px;
+  }
+  .custom-specialistdetailcol {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+    vertical-align: center;
+    flex-wrap: wrap;
+  }
+  /* APPT MODAL */
+  .custom-appointmentscreenbutton {
+    background-color: red;
+    border-color: red;
+    font-weight: bold;
+  }
+  .customModal {
+    position: fixed;
+    padding: 150px;
+  }
+  .customModal .modal-dialog {
+    max-width: 1000px;
+  }
+
+  .customModal .modal-content {
+    width: 100%;
+  }
+  .custom-modaltitle {
+    font-size: 24px;
+  }
+  /* APPT CARD */
+  .custom-apptcard {
+    margin-top: 5px;
+    overflow-x: hidden;
+  }
+  .custom-apptcardtitle {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  .custom-apptcarddropdowntoggle {
+    background-color: black;
+    border-color: black;
+  }
+  .custom-apptcardrow {
+    font-size: 20px;
+  }
+  .custom-apptcardclinicdetails {
+    margin-top: 10px;
+  }
+  .custom-apptcardclinicdetails1 {
+    font-weight: lighter;
+    margin-top: 5px;
+  }
+  .custom-apptcardclinicdetails2 {
+    font-weight: lighter;
+    margin-top: 5px;
+    overflow-x: hidden;
+  }
+  .custom-apptcardarrowbtn {
+    background-color: black;
+    border-color: black;
+  }
+  .custom-apptcardarrowbtn:disabled {
+    background-color: grey;
+    border-color: grey;
+  }
+  .custom-apptcardcol1 {
+    flex: 1;
+    text-align: center;
+  }
+  .custom-apptcardcol3 {
+    margin-top: 0.5rem; /* Adjust as needed */
+    margin-bottom: 0.5rem; /* Adjust as needed */
+    display: flex;
+    flex-direction: row;
+  }
+  .custom-apptcarddaybtn1 {
+    height: 50px;
+    min-width: 70px;
+    max-width: 90px;
+    font-size: 14px;
+    border-color: black;
+    background-color: black;
+  }
+  .custom-apptcarddaybtn1:disabled {
+    height: 50px;
+    min-width: 70px;
+
+    max-width: 90px;
+    font-size: 14px;
+    border-color: grey;
+    background-color: grey;
+  }
+  .custom-apptcarddaybtn2 {
+    height: 50px;
+    min-width: 70px;
+    max-width: 90px;
+    font-size: 14px;
+    border-color: #1165a0;
+    background-color: #1165a0;
+  }
+  .custom-apptcarddaybtn2:disabled {
+    height: 50px;
+    min-width: 70px;
+
+    max-width: 90px;
+    font-size: 14px;
+    border-color: grey;
+    background-color: grey;
+  }
+  .custom-apptcarddaybtn2:disabled {
+    height: 50px;
+    min-width: 70px;
+    max-width: 90px;
+    font-size: 14px;
+    border-color: grey;
+    background-color: grey;
+  }
+  .custom-apptcardcol2 {
+    font-size: 24px;
+    position: relative;
+  }
+  .custom-apptcardconfirmapptbtn {
+    background-color: black;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+  }
+  .custom-apptcardconfirmapptbtn:disabled {
+    background-color: grey;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-color: grey;
+    position: absolute;
+    bottom: 0;
+    right: 30px;
+  }
+  .custom-apptcardcol5 {
+    align-items: center;
+    justify-content: center;
+    margin-left: -30px;
+  }
+  .custom-apptcardcol6 {
+    position: relative;
+  }
+  .custom-apptcardchangeapptbtn {
+    background-color: black;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    right: 30px;
+  }
+  .custom-apptcardapptformlabel {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: lighter;
+    float: inline-start;
+  }
+  .custom-apptcardapptformfield {
+    font-size: 18px;
+    width: 265px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+  }
+  .custom-apptcardsubmitbtn2 {
+    background-color: #1165a0;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    width: 200px;
+    right: 30px;
+    bottom: 0;
+  }
+  .custom-apptcardsubmitbtn2:disabled {
+    background-color: #1165a0;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    border-color: black;
+    position: absolute;
+    width: 200px;
+    right: 30px;
+    bottom: 0;
+  }
+  .custom-apptcardcol7 {
+    position: relative;
+  }
+  .custom-apptcardvalidprompts {
+    color: red;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  .custom-hfive {
+    font-size: 22px;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+  .custom-navbarbtn {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+    color: black;
+  }
+  .custom-navbarbtn:hover {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: #1165a0;
+    color: white;
+  }
+  .custom-navbarbtn2 {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: white;
+    color: #1165a0;
+  }
+  .custom-navbarbtn2:hover {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: #1165a0;
+    color: white;
+  }
+  .custom-navbarbtn3 {
+    height: 40px;
+    border: solid;
+    border-width: 1px;
+    background-color: #1165a0;
+    border-color: #1165a0;
+    color: white;
+    border-radius: 7px;
+    margin-left: 5px;
+    margin-right: 8px;
+  }
+  .custom-navbarcontainer {
+    height: 60px; /* Example height */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 5px;
+  }
+  .custom-navbarspan {
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
+  }
+  .custom-navbarspan:hover {
+    font-size: 16px;
+    color: white;
+    font-weight: normal;
+  }
+  .custom-navbarspan2 {
+    font-size: 16px;
+    color: #1165a0;
+    font-weight: normal;
+  }
+  .custom-navbarspan2:hover {
+    font-size: 16px;
+    color: white;
+    font-weight: normal;
+  }
+  .custom-navbarspan3 {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+  }
+  .custom-navbariconsize {
+    font-size: 16px;
+  }
+  /* BLOG SCREEN*/
+  .custom-blogscreencontainer {
+    height: 100px;
+  }
+  .custom-blogscreenheader {
+    font-size: 36px;
+  }
+  /* BLOG CARD*/
+  .custom-blogcard {
+    border-style: solid;
+    height: 200px;
+  }
+  .custom-blogcardlink {
+    text-decoration: none;
+    color: black;
+  }
+  .custom-blogcardrow {
+    height: 50px;
+    margin-left: 3px;
+    margin-top: 5px;
+  }
+  .custom-blogcardimg {
+    max-height: 180px;
+    max-width: 200px;
+    margin-top: 50px;
+  }
+  .custom-blogcardbtn:disabled {
+    margin-top: -10px;
+    border-color: #1165a0;
+    color: #1165a0;
+    background-color: white;
+  }
+  .custom-blogcardspan1 {
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+    margin-top: -10px;
+  }
+  .custom-blogcardtext {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  /* BLOG AUTHOR*/
+
+  .custom-blogauthorcard {
+    margin-top: 30px;
+  }
+  .custom-blogauthorspan1 {
+    font-size: 14px;
+  }
+  .custom-blogauthorcol1 {
+    max-width: fit-content;
+  }
+  .custom-blogauthorimg {
+    margin-left: 40px;
+    border-radius: 100%;
+    max-width: 200px;
+  }
+  .custom-blogauthorcol2 {
+    max-width: fit-content;
+  }
+  .custom-blogauthorp1 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .custom-blogauthorspan2 {
+    font-size: 18px;
+  }
+
+  /* BLOG DETAIL*/
+  .custom-blogdetailcontainer {
+    height: 100px;
+  }
+  .custom-blogdetailbackbtn {
+    font-size: 16px;
+  }
+  .custom-blogdetailrow1 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .custom-blogdetailbtn:disabled {
+    font-size: 18px;
+    max-width: 250px;
+    border-color: #1165a0;
+    color: #1165a0;
+    background-color: white;
+  }
+  .custom-blogdetailh1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  .custom-blogdetailp1 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+  .custom-blogdetailp2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: -15px;
+  }
+
+  .custom-blogdetailcol1 {
+    justify-content: center;
+  }
+  .custom-blogdetailimg {
+    max-width: 600px;
+    min-height: 200px;
+  }
+  .custom-blogdetailrow2 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+  .custom-blogdetailp3 {
+    font-size: 20px;
+  }
+  .custom-blogdetailrow3 {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+}

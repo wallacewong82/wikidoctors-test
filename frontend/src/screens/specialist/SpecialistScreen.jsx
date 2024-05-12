@@ -53,26 +53,22 @@ const SpecialistScreen = () => {
   };
   return (
     <>
-    <Meta title="Specialist search"/>
-      <Container style={{ height: 100 }}></Container>
+      <Meta title="Specialist search" />
+      <Container className={"custom-specialistscreencontainer"}></Container>
       {showModal ? (
         <AppointmentScreen
           specialist={selectedSpecialist}
           setShowModal={setShowModal}
         />
       ) : null}
-      <Row>
+      <Row className={"custom-specialistscreenrow"}>
         <Col md={4}>
-          <h1>Specialists Search</h1>
+          <h1 className={"custom-hone2"}>Specialists Search</h1>
         </Col>
         <Col md={4}></Col>
         <Col md={4}>
           <Button
-            className="btn btn-dark float-end"
-            style={{
-              fontSize: "20px",
-              fontWeight: "bold",
-            }}
+          className={"custom-specialistscreenrestartbtn"}
             onClick={resetHandler}
           >
             Restart Search
@@ -111,14 +107,8 @@ const SpecialistScreen = () => {
       ) : (
         <>
           <Row>
-            <span
-              style={{
-                fontWeight: "none",
-                fontSize: "24px",
-                marginBottom: "20px",
-              }}
-            >
-              <strong>{data.count}</strong> specialists found based on your
+            <span className={"custom-specialistscreenspan"}>
+              <strong>{data.count}</strong> specialists found in <strong>Singapore</strong> based on your
               search criteria.
             </span>
             {data.specialists.map((specialist) => (

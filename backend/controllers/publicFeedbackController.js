@@ -31,7 +31,7 @@ const createPublicFeedback = asyncHandler(async (req, res) => {
       pfeedback.subject +
       "\nMessage: " +
       pfeedback.message +
-      "\n\nPlease allow us 3 working days to respond to you. We deeply appreciate your patience with us, and your continued support. \n\nSincerely,\nWallace\nThe HealthChannel.sg team";
+      "\n\nPlease allow us 3 working days to respond to you. We deeply appreciate your patience with us, and your continued support. \n\nSincerely,\nWallace\nThe WikiDoctors.com team";
     sendEmail({ to: recipientemail, content: thankyoufeedback });
     res.status(201).json(createdFeedback);
     console.log("created");
@@ -42,19 +42,25 @@ const createPublicFeedback = asyncHandler(async (req, res) => {
 
 function sendEmail({ to, content }) {
   const transport = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587, // Gmail SMTP port
-    secure: false,
+    host:'smtpout.secureserver.net',
+    port:465,
+    // host: "smtp.gmail.com",
+    // port: 587, // Gmail SMTP port
+    secure: true,
     auth: {
-      user: process.env.GMAIL_ADDRESS,
-      pass: process.env.GMAIL_PASSWORD,
+      user: process.env.GDADDY_ADDRESS,
+      pass: process.env.GDADDY_PASSWORD,
+      // user: process.env.GMAIL_ADDRESS,
+      // pass: process.env.GMAIL_PASSWORD,
     },
   });
   let mailOptions = {
-    from: process.env.GMAIL_ADDRESS,
+    from: process.env.GDADDY_ADDRESS,
+   // from: process.env.GMAIL_ADDRESS,
     to: to, // Placeholder for recipient email
     subject: "Thank you for your feedback",
     text: content,
+    bcc: ['webmagic@gmail.com']
   };
 
   // Send email

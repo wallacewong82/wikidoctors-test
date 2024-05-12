@@ -87,7 +87,7 @@ const ShowClinicHours = ({
   };
 
   return (
-    <div>
+    <div >
       {intervals.map((interval, index) => {
         const isBooked = isTimeSlotBooked(interval.start);
         return (

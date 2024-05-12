@@ -37,11 +37,11 @@ const SpecialistDetailScreen = () => {
   // }, [specialist.image]);
   return (
     <>
-      <Container style={{ height: 100 }}></Container>
-      <Link className="btn btn-dark my-3" to={-1}>
+      <Container className={"custom-specialistscreencontainer"}></Container>
+      <Link className={"custom-specialistdetailbackbtn"} to={-1}>
         Back to Search Result
       </Link>
-      <h2>Specialist Details</h2>
+      <h2 className={"custom-htwo"}>Specialist Details</h2>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -49,55 +49,42 @@ const SpecialistDetailScreen = () => {
           {error?.data?.message || error.error}
         </Message>
       ) : (
-        <Container style={{ borderWidth: "2px", borderStyle: "solid" }}>
+        <Container className={"custom-specialistdetailcontainer"}>
           {showModal ? (
             <NewAppointmentScreen
               specialist={specialist}
               setShowModal={setShowModal}
             />
           ) : null}
+          <Row className="d-md-none">
+            <h3 className={"custom-hthree"}>
+              {specialist.title ? specialist.title : "Dr"} {specialist.name}{" "}
+              {specialist.verified ? (
+                <Button
+                  className={"custom-specialistdetailverifiedbtn"}
+                  disabled
+                >
+                  Verified
+                </Button>
+              ) : null}
+            </h3>
+          </Row>
           <Row className="my-3">
-            <Col
-              md={3}
-              style={{
-                display: "flex",
-                alignContent: "center",
-                justifyContent: "center",
-              }}
-            >
+            <Col md={3} className={"custom-specialistdetailcol1"}>
               <Image
                 src={`/api/image/${specialist.image}`}
-                style={{
-                  borderWidth: "1px",
-                  borderStyle: "solid",
-                  borderRadius: "1em 1em 1em 1em",
-                  borderColor: "grey",
-                  maxHeight: "320px",
-                  maxWidth: "400px",
-                  minWidth: "240px",
-                }}
+                className={"custom-specialistdetailimage"}
               ></Image>
             </Col>
             <Col md={9}>
               <Row>
-                <Col md={9}>
+                <Col md={9} className="d-none d-md-block">
                   <h3>
                     {specialist.title ? specialist.title : "Dr"}{" "}
                     {specialist.name}{" "}
                     {specialist.verified ? (
                       <Button
-                        style={{
-                          borderRadius: "1em 1em 1em 1em",
-                          maxWidth: "max-content",
-                          backgroundColor: "white",
-                          fontSize: "20px",
-                          color: "maroon",
-                          borderColor: "maroon",
-                          display: "absolute",
-                          alignItems: "center",
-                          marginLeft: "auto",
-                          marginTop: "-5px",
-                        }}
+                        className={"custom-specialistdetailverifiedbtn"}
                         disabled
                       >
                         Verified
@@ -107,64 +94,39 @@ const SpecialistDetailScreen = () => {
                 </Col>
                 <Col md={3}>
                   <Button
-                    className="btn-block"
-                    type="button"
-                    style={
+                    className={
                       !(specialist.clinic.length > 0)
-                        ? {
-                            backgroundColor: "lightgrey",
-                            borderColor: "lightgrey",
-                            fontSize: "24px",
-                            borderRadius: "1em 1em 1em 1em",
-                          }
-                        : {
-                            fontSize: "24px",
-                            borderRadius: "1em 1em 1em 1em",
-                            backgroundColor: "#40679E",
-                            borderColor: "#40679E",
-                          }
+                        ? "custom-specialistdetailappointmentbutton1"
+                        : "custom-specialistdetailappointmentbutton2"
                     }
+                    type="button"
                     disabled={!(specialist.clinic.length > 0)}
                     onClick={displaySpecHandler}
                   >
                     <strong>Make Appointment</strong>
                   </Button>
-                  {/* {specialist.clinic.length > 0 ? (
-                    
-                  ) : null} */}
                 </Col>
               </Row>
               <Row>
                 {specialist.specialty.length >= 1 && (
                   <Row key={specialist.specialty._id}>
                     <Col md={3} className="my-2">
-                      <h5>Specialties :</h5>
+                      <h5 className="custom-hfive2">Specialties:</h5>
                     </Col>
                     <Col
                       md={9}
-                      className="my-2"
-                      style={{ display: "flex", verticalAlign: "center" }}
+                      className={"custom-specialistdetailcol"}
                     >
                       {specialist.specialty.map((specialtyfocus) =>
                         specialtyfocus.specialty ? (
                           <Button
+                            className={"custom-specialistcardspecialty"}
                             key={specialtyfocus._id}
-                            style={{
-                              height: "36px",
-                              maxWidth: "max-content",
-                              fontSize: "13px",
-                              backgroundColor: "grey",
-                              borderColor: "grey",
-                              borderRadius: "1em 1em 1em 1em",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              margin: "3px",
-                              marginLeft: "10px",
-                            }}
                             disabled
                           >
-                            <h5>{specialtyfocus.specialty}</h5>
+                            <h5 className={"custom-hfive"}>
+                              {specialtyfocus.specialty}
+                            </h5>
                           </Button>
                         ) : null
                       )}
@@ -176,33 +138,22 @@ const SpecialistDetailScreen = () => {
                 ) ? (
                   <Row key={specialist.specialty._id}>
                     <Col md={3} className="my-2">
-                      <h5>Sub-specialties :</h5>
+                      <h5 className="custom-hfive2">Sub-specialties:</h5>
                     </Col>
                     <Col
                       md={9}
-                      className="my-2"
-                      style={{ display: "flex", verticalAlign: "center" }}
+                      className={"custom-specialistdetailcol"}
                     >
                       {specialist.specialty.map((specialtyfocus) =>
                         specialtyfocus.subspecialty ? (
                           <Button
                             key={specialtyfocus._id}
-                            style={{
-                              height: "36px",
-                              maxWidth: "max-content",
-                              fontSize: "13px",
-                              backgroundColor: "grey",
-                              borderColor: "grey",
-                              borderRadius: "1em 1em 1em 1em",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              margin: "3px",
-                              marginLeft: "10px",
-                            }}
+                            className={"custom-specialistcardspecialty"}
                             disabled
                           >
-                            <h5>{specialtyfocus.subspecialty}</h5>
+                            <h5 className={"custom-hfive"}>
+                              {specialtyfocus.subspecialty}
+                            </h5>
                           </Button>
                         ) : null
                       )}
@@ -214,33 +165,22 @@ const SpecialistDetailScreen = () => {
                 ) ? (
                   <Row key={specialist.specialty._id}>
                     <Col md={3} className="my-2">
-                      <h5>Clinical interests :</h5>
+                      <h5 className="custom-hfive2">Clinical interests:</h5>
                     </Col>
                     <Col
                       md={9}
-                      className="my-2"
-                      style={{ display: "flex", verticalAlign: "center" }}
+                      className={"custom-specialistdetailcol"}
                     >
                       {specialist.specialty.map((specialtyfocus) =>
                         specialtyfocus.clinicalinterest ? (
                           <Button
                             key={specialtyfocus._id}
-                            style={{
-                              height: "40px",
-                              maxWidth: "max-content",
-                              fontSize: "8px",
-                              backgroundColor: "navy",
-                              borderColor: "navy",
-                              borderRadius: "1em 1em 1em 1em",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              margin: "3px",
-                              marginLeft: "10px",
-                            }}
+                            className={"custom-specialistcardspecialty"}
                             disabled
                           >
-                            <p style={{fontSize:"15px", marginTop:"12px"}}>{specialtyfocus.clinicalinterest}</p>
+                            <h5 className={"custom-hfive"}>
+                              {specialtyfocus.clinicalinterest}
+                            </h5>
                           </Button>
                         ) : null
                       )}
@@ -251,15 +191,16 @@ const SpecialistDetailScreen = () => {
               {specialist.qualifications ? (
                 <Row>
                   <Col md={3} className="my-2">
-                    <h5>Qualifications :</h5>
+                    <h5 className="custom-hfive2">Qualifications:</h5>
                   </Col>
                   <Col
                     md={9}
-                    className="my-2"
-                    style={{ display: "flex", verticalAlign: "center" }}
+                    className={"custom-specialistdetailcol"}
                   >
                     {specialist.qualifications.length >= 1 && (
-                      <h5 style={{ marginLeft: "6px" }}>
+                      <h5
+                        className="custom-hfive3"
+                      >
                         {specialist.qualifications.trim()}
                       </h5>
                     )}
@@ -269,33 +210,26 @@ const SpecialistDetailScreen = () => {
               {specialist.insurerPanel ? (
                 <Row>
                   <Col md={3} className="my-2">
-                    <h5>Insurers :</h5>
+                    <h5 className="custom-hfive2">Insurers:</h5>
                   </Col>
                   <Col
                     md={9}
-                    className="my-2"
-                    style={{ display: "flex", verticalAlign: "center" }}
+                    className={"custom-specialistdetailcol"}
                   >
                     {specialist.insurerPanel.map((insurer) =>
                       insurer.insurerName ? (
                         <Button
                           key={insurer._id}
+                          className={"custom-specialistcardspecialty"}
                           style={{
-                            height: "36px",
-                            maxWidth: "max-content",
-                            fontSize: "13px",
                             color: "black",
-                            backgroundColor: "lightgrey",
-                            borderColor: "lightgrey",
-                            borderRadius: "1em 1em 1em 1em",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            borderColor:"#1165a0",
+                            backgroundColor: "white",
                             margin: "3px",
                           }}
                           disabled
                         >
-                          <h5>
+                          <h5 className={"custom-hfive"}>
                             {insurer.insurerName} {insurer.panelType}
                           </h5>
                         </Button>
@@ -307,36 +241,27 @@ const SpecialistDetailScreen = () => {
               {specialist.languages ? (
                 <Row>
                   <Col md={3} className="my-2">
-                    <h5>Languages :</h5>
+                    <h5 className="custom-hfive2">Languages:</h5>
                   </Col>
                   <Col
                     md={9}
-                    className="my-2"
-                    style={{
-                      display: "flex",
-                      verticalAlign: "center",
-                      flexWrap: "wrap",
-                    }}
+                    className={"custom-specialistdetailcol"}
                   >
                     {specialist.languages.map((language) =>
                       language ? (
                         <Button
                           key={language._id}
+                          className={"custom-specialistcardspecialty"}
                           style={{
-                            height: "36px",
-                            maxWidth: "max-content",
                             color: "black",
                             backgroundColor: "white",
-                            fontSize: "13px",
-                            borderRadius: "1em 1em 1em 1em",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
                             margin: "3px",
                           }}
                           disabled
                         >
-                          <h5>{language.language}</h5>
+                          <h5 className={"custom-hfive"}>
+                            {language.language}
+                          </h5>
                         </Button>
                       ) : null
                     )}
@@ -346,37 +271,28 @@ const SpecialistDetailScreen = () => {
               {specialist.location ? (
                 <Row>
                   <Col md={3} className="my-2">
-                    <h5>Locations :</h5>
+                    <h5 className="custom-hfive2">Locations:</h5>
                   </Col>
                   <Col
                     md={9}
-                    className="my-2"
-                    style={{
-                      display: "flex",
-                      verticalAlign: "center",
-                      flexWrap: "wrap",
-                    }}
+                    className={"custom-specialistdetailcol"}
                   >
                     {specialist.location.map((location) =>
                       location ? (
                         <Button
                           key={location._id}
+                          className={"custom-specialistcardspecialty"}
                           style={{
-                            height: "36px",
-                            maxWidth: "max-content",
-                            color: "white",
-                            backgroundColor: "black",
-                            fontSize: "13px",
-                            borderRadius: "1em 1em 1em 1em",
-                            borderColor: "black",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
+                            color: "black",
+                            backgroundColor: "white",
+                            borderColor:"black",
                             margin: "3px",
                           }}
                           disabled
                         >
-                          <h5>{location.locationName}</h5>
+                          <h5 className={"custom-hfive"}>
+                            {location.locationName}
+                          </h5>
                         </Button>
                       ) : null
                     )}
@@ -388,8 +304,8 @@ const SpecialistDetailScreen = () => {
           <hr />
           {specialist.writeup ? (
             <Row className="my-2">
-              <span style={{ fontSize: "20px" }}>
-                <h4>Professional Profile:</h4>{" "}
+              <span className={"custom-specialistdetailwriteupspan"}>
+                <h4 className="custom-hfive2">Professional Profile:</h4>{" "}
                 {specialist.writeup
                   .replace("&amp;", "&")
                   .replace("・・", "'")
@@ -402,13 +318,45 @@ const SpecialistDetailScreen = () => {
           {specialist.clinic.length > 0 ? (
             specialist.clinic.length > 1 ? (
               <>
-                <Row style={{ fontSize: "20px" }}>
+                <Row className={"custom-specialistdetailrow"}>
                   <hr />
-                  <span style={{ fontSize: "22px" }}>
-                    <h4>Clinic(s)</h4>
+                  <span className={"custom-specialistdetailspan"}>
+                    <h4 className="custom-hfive2">Clinic(s):</h4>
                   </span>
-                  <Col md={3}>Clinic name:</Col>
-                  <Col md={7}>
+                  <Dropdown className="d-md-none">
+                    <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                      Change Clinic
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu
+                      className={"custom-specialistdetailclinicdropdownmenu"}
+                    >
+                      {specialist.clinic.map((clinic, index) => (
+                        <React.Fragment key={index}>
+                          <Dropdown.Item
+                            onClick={() => changeClinicHandler(index)}
+                            key={index}
+                            className={
+                              "custom-specialistdetailclinicdropdownitem"
+                            }
+                          >
+                            {clinic.clinicName.replace("&amp;", "&")} -{" "}
+                            {specialist.location[index].locationName}
+                          </Dropdown.Item>
+                          {index !== specialist.clinic.length - 1 && (
+                            <Dropdown.Divider />
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </Dropdown.Menu>
+                  </Dropdown>
+                  <Col md={3} className={"custom-specialistdetailclinictitle"}>
+                    Clinic name:
+                  </Col>
+                  <Col
+                    md={7}
+                    className={"custom-specialistdetailclinicdetails"}
+                  >
                     <strong>
                       {specialist.clinic[startclinicval].clinicName.replace(
                         "&amp;",
@@ -419,28 +367,41 @@ const SpecialistDetailScreen = () => {
                   </Col>
 
                   <Col md={2}>
-                    <Dropdown>
-                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <Dropdown className="d-none d-md-block">
+                      <Dropdown.Toggle variant="dark" id="dropdown-basic" className={"custom-specialistdetailchangeclinicbtn"}>
                         Change Clinic
                       </Dropdown.Toggle>
 
                       <Dropdown.Menu>
                         {specialist.clinic.map((clinic, index) => (
-                          <Dropdown.Item
-                            onClick={() => changeClinicHandler(index)}
-                            key={index}
-                          >
-                            {clinic.clinicName.replace("&amp;", "&")} -{" "}
-                            {specialist.location[index].locationName}
-                          </Dropdown.Item>
+                          <React.Fragment key={index}>
+                            <Dropdown.Item
+                              onClick={() => changeClinicHandler(index)}
+                              key={index}
+                              className={
+                                "custom-specialistdetailclinicdropdownitem"
+                              }
+                            >
+                              {clinic.clinicName.replace("&amp;", "&")} -{" "}
+                              {specialist.location[index].locationName}
+                            </Dropdown.Item>
+                            {index !== specialist.clinic.length - 1 && (
+                              <Dropdown.Divider />
+                            )}
+                          </React.Fragment>
                         ))}
                       </Dropdown.Menu>
                     </Dropdown>
                   </Col>
                 </Row>
-                <Row style={{ fontSize: "20px" }}>
-                  <Col md={3}>Clinic address:</Col>
-                  <Col md={9}>
+                <Row className={"custom-specialistdetailrow"}>
+                  <Col md={3} className={"custom-specialistdetailclinictitle"}>
+                    Clinic address:
+                  </Col>
+                  <Col
+                    md={9}
+                    className={"custom-specialistdetailclinicdetails"}
+                  >
                     {specialist.clinic[startclinicval].clinicAddress.replace(
                       "&amp;",
                       "&"
@@ -450,7 +411,8 @@ const SpecialistDetailScreen = () => {
                         specialist.location[startclinicval].locationLongitude
                           ? {
                               lat: parseFloat(
-                                specialist.location[startclinicval].locationLatitude
+                                specialist.location[startclinicval]
+                                  .locationLatitude
                               ),
                               lng: parseFloat(
                                 specialist.location[startclinicval]
@@ -465,9 +427,14 @@ const SpecialistDetailScreen = () => {
                     />
                   </Col>
                 </Row>
-                <Row style={{ fontSize: "20px" }}>
-                  <Col md={3}>Clinic hours:</Col>
-                  <Col md={9}>
+                <Row className={"custom-specialistdetailrow"}>
+                  <Col md={3} className={"custom-specialistdetailclinictitle"}>
+                    Clinic hours:
+                  </Col>
+                  <Col
+                    md={9}
+                    className={"custom-specialistdetailclinicdetails"}
+                  >
                     {specialist.clinic[startclinicval].clinicHours
                       .split("; ")
                       .map((item, index) => {
@@ -492,13 +459,18 @@ const SpecialistDetailScreen = () => {
               </>
             ) : (
               <>
-                <Row style={{ fontSize: "20px" }}>
+                <Row className={"custom-specialistdetailrow"}>
                   <hr />
-                  <span style={{ fontSize: "22px" }}>
-                    <h4>Clinic</h4>
+                  <span className={"custom-specialistdetailspan"}>
+                    <h4 className="custom-hfive2">Clinic:</h4>
                   </span>
-                  <Col md={3}>Clinic name:</Col>
-                  <Col md={7}>
+                  <Col md={3} className={"custom-specialistdetailclinictitle"}>
+                    Clinic name:
+                  </Col>
+                  <Col
+                    md={7}
+                    className={"custom-specialistdetailclinicdetails"}
+                  >
                     <strong>
                       {specialist.clinic[startclinicval].clinicName.replace(
                         "&amp;",
@@ -508,9 +480,14 @@ const SpecialistDetailScreen = () => {
                     </strong>
                   </Col>
                 </Row>
-                <Row style={{ fontSize: "20px" }}>
-                  <Col md={3}>Clinic address:</Col>
-                  <Col md={9}>
+                <Row className={"custom-specialistdetailrow"}>
+                  <Col md={3} className={"custom-specialistdetailclinictitle"}>
+                    Clinic address:
+                  </Col>
+                  <Col
+                    md={9}
+                    className={"custom-specialistdetailclinicdetails"}
+                  >
                     {specialist.clinic[startclinicval].clinicAddress.replace(
                       "&amp;",
                       "&"
@@ -520,7 +497,8 @@ const SpecialistDetailScreen = () => {
                         specialist.location[startclinicval].locationLongitude
                           ? {
                               lat: parseFloat(
-                                specialist.location[startclinicval].locationLatitude
+                                specialist.location[startclinicval]
+                                  .locationLatitude
                               ),
                               lng: parseFloat(
                                 specialist.location[startclinicval]
@@ -535,9 +513,14 @@ const SpecialistDetailScreen = () => {
                     />
                   </Col>
                 </Row>
-                <Row style={{ fontSize: "20px" }}>
-                  <Col md={3}>Clinic hours:</Col>
-                  <Col md={9}>
+                <Row className={"custom-specialistdetailrow"}>
+                  <Col md={3} className={"custom-specialistdetailclinictitle"}>
+                    Clinic hours:
+                  </Col>
+                  <Col
+                    md={9}
+                    className={"custom-specialistdetailclinicdetails"}
+                  >
                     {specialist.clinic[startclinicval].clinicHours
                       .split("; ")
                       .map((item, index) => {

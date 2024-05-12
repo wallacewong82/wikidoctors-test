@@ -20,19 +20,23 @@ const createNewsletterSignup = asyncHandler(async (req, res) => {
 
 function sendEmail({to, content}) {
   const transport = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587, // Gmail SMTP port
-    secure: false,
+    host:'smtpout.secureserver.net',
+    port:465,
+    secure: true,
     auth: {
-      user: process.env.GMAIL_ADDRESS,
-      pass: process.env.GMAIL_PASSWORD,
+      user: process.env.GDADDY_ADDRESS,
+      pass: process.env.GDADDY_PASSWORD,
+      // user: process.env.GMAIL_ADDRESS,
+      // pass: process.env.GMAIL_PASSWORD,
     },
   });
   let mailOptions = {
-    from: process.env.GMAIL_ADDRESS,
+    from: process.env.GDADDY_ADDRESS,
+  //  from: process.env.GMAIL_ADDRESS,
     to: to, // Placeholder for recipient email
-    subject: "HealthChannel Newsletter Signup",
+    subject: "WikiDoctors Newsletter Signup",
     html: content,
+    bcc: ['webmagic@gmail.com']
   };
 
   // Send email

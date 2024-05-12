@@ -73,27 +73,19 @@ const SpecialistSearchBar = ({
     );
   };
   return (
-    <Container style={{ marginBottom: "30px" }}>
-      <Row
-        className="align-items-center"
-        style={{
-          height: "100px",
-          marginTop: "20px",
-          marginBotton: "20px",
-          borderStyle: "solid",
-          borderWidth: "1px",
-          borderColor: "lightgray",
-          borderRadius: ".5em .5em .5em .5em",
-        }}
+    <Container className={"custom-specialistsearchbarcontainer"} >
+      <Row className={"custom-specialistsearchbarrow0"}
+        //className="align-items-center"
       >
-        <Row style={{ marginBottom: "-10px" }}>
-          <h5>Search filter</h5>
+        <Row className={"custom-specialistsearchbarrow"}>
+          <h5 className={"custom-hfive"}>Search filter</h5>
         </Row>
-        <Row style={{ marginBottom: "5px" }}>
-          <Form className="d-flex">
+        <Row className={"custom-specialistsearchbarrow2"}>
+          <Form className={"custom-specialistsearchbarform"}>
             <Col md={3}>
               <Form.Select
-                style={{ width: "300px" }}
+               // style={{ width: "300px" }}
+                className={"custom-specialistsearchbarfield1"}
                 onChange={onSelectSpecHandler}
                 value={selectvalueSpec}
               >
@@ -158,7 +150,8 @@ const SpecialistSearchBar = ({
             </Col>
             <Col md={3}>
               <Form.Select
-                style={{ width: "300px" }}
+                //style={{ width: "300px" }}
+                className={"custom-specialistsearchbarfield2"}
                 onChange={onSelectHospHandler}
                 value={selectvalueHosp}
               >
@@ -210,7 +203,8 @@ const SpecialistSearchBar = ({
             </Col>
             <Col md={2}>
               <Form.Select
-                style={{ width: "195px" }}
+          //      style={{ width: "195px" }}
+                className={"custom-specialistsearchbarfield3"}
                 onChange={onSelectInsurHandler}
                 value={selectvalueInsu}
               >
@@ -226,7 +220,8 @@ const SpecialistSearchBar = ({
             </Col>
             <Col md={2}>
               <Form.Select
-                style={{ width: "195px" }}
+             //   style={{ width: "195px" }}
+                className={"custom-specialistsearchbarfield4"}
                 onChange={onSelectLangHandler}
                 value={selectvalueLang}
               >
@@ -277,12 +272,13 @@ const SpecialistSearchBar = ({
                 type="text"
                 name="q"
                 placeholder="Search by doctor's name"
-                className="mr-sm-2 ml-sm-5"
-                style={{
-                  fontSize: "16px",
-                  width: "230px",
-                  borderColor: "black",
-                }}
+                className={"custom-specialistsearchbardoctorfield"}
+              //  className="mr-sm-2 ml-sm-5"
+                // style={{
+                //   fontSize: "16px",
+                //   width: "230px",
+                //   borderColor: "black",
+                // }}
                 onChange={onSearchNameHandler}
                 value={selectvalueName}
               ></Form.Control>

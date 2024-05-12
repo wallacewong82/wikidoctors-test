@@ -4,14 +4,17 @@ import ShowClinicHours from "./ShowClinicHours";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 import Loader from "../../components/Loader";
-import { useNewAppointmentMutation, useGetAppointmentsByClinicIdQuery } from "../../slices/appointmentsApiSlice";
+import {
+  useNewAppointmentMutation,
+  useGetAppointmentsByClinicIdQuery,
+} from "../../slices/appointmentsApiSlice";
 
 const ClinicAppointmentCard = ({
   specialistLocs,
   specialistTitle,
   specialistName,
   specialistClinics,
-  setShowModal
+  setShowModal,
 }) => {
   const [startclinicval, setStartClinicVal] = useState(0);
   const [selectedClinic, setSelectedClinic] = useState(
@@ -57,7 +60,7 @@ const ClinicAppointmentCard = ({
   const [showMyHours, setShowMyHours] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^\+?\d{8,}$/;
+  const phoneRegex = /^[3689]\d{7}$/;
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -76,15 +79,19 @@ const ClinicAppointmentCard = ({
   const [message, setMessage] = useState("");
   const [emailButtonEnabled, setEmailButtonEnabled] = useState(false);
   const [phoneButtonEnabled, setPhoneButtonEnabled] = useState(false);
+  const [emailValid, setEmailValid] = useState(true);
+  const [phoneValid, setPhoneValid] = useState(true);
 
   const activateJoinHandler = (e) => {
     e.preventDefault();
     setEmail(e.target.value);
     if (emailRegex.test(email)) {
       setEmailButtonEnabled(true);
+      setEmailValid(true);
     }
     if (!emailRegex.test(email)) {
       setEmailButtonEnabled(false);
+      setEmailValid(false);
     }
   };
   const activatePhoneHandler = (e) => {
@@ -92,9 +99,11 @@ const ClinicAppointmentCard = ({
     setPhone(e.target.value);
     if (phoneRegex.test(phone.replace(" ", ""))) {
       setPhoneButtonEnabled(true);
+      setPhoneValid(true);
     }
     if (!phoneRegex.test(phone.replace(" ", ""))) {
       setPhoneButtonEnabled(false);
+      setPhoneValid(false);
     }
   };
   const onClickHandler = (hours) => {
@@ -141,7 +150,7 @@ const ClinicAppointmentCard = ({
   }, [weekcount, setLeftActive, setRightActive]);
 
   useEffect(() => {
-    if(todayDate === ""){
+    if (todayDate === "") {
       setTodayDate(new Date());
     }
     const weekStart = new Date(displayedDate);
@@ -174,7 +183,7 @@ const ClinicAppointmentCard = ({
     specialistClinics,
     startclinicval,
     setDisplayedDate,
-    setTodayDate
+    setTodayDate,
   ]);
 
   useEffect(() => {
@@ -194,7 +203,7 @@ const ClinicAppointmentCard = ({
     //   .split("; ")
     //   .map((item) => item.split(" : "))
     //   .find(([day]) => day === initialHighlightedDay)?.[1];
-      const hours = specialistClinics[startclinicval].clinicHours
+    const hours = specialistClinics[startclinicval].clinicHours
       .split("; ")
       .map((item) => item.split(" : "))
       .find(([day]) => day === initialHighlightedDay)?.[1];
@@ -218,13 +227,14 @@ const ClinicAppointmentCard = ({
       const res = await CreateNewAppointment({
         _id: uuidv4(),
         eventtitle:
-          "<HealthChannel.sg> Your appointment with " +
+          "<WikiDoctors.com> Your appointment with " +
           (specialistTitle ? specialistTitle : "Dr ") +
           specialistName,
         clinicname: selectedClinic,
         clinicID: selectedClinicID,
-        clinicAddress:selectedClinicAddress, 
-        doctorname: (specialistTitle ? specialistTitle : "Dr ") + specialistName,
+        clinicAddress: selectedClinicAddress,
+        doctorname:
+          (specialistTitle ? specialistTitle : "Dr ") + specialistName,
         time: selectedTime,
         date: selectedDate + " " + selectedYear,
         patientName: name,
@@ -248,28 +258,58 @@ const ClinicAppointmentCard = ({
     console.log("appointment submitted");
   };
   return (
-    <Card style={{ marginTop: "5px" }}>
-      {isLoading && <Loader/>}
+    <Card className={"custom-apptcard"}>
+      {isLoading && <Loader />}
       {!showConfirmAppointmentPage && (
         <>
           <Card.Header>
-            <Card.Title style={{ fontSize: "22px", fontWeight: "bold" }}>
+            <Card.Title className={"custom-apptcardtitle"}>
               {specialistClinics.length > 1 ? (
                 <Row>
-                  <Col md={3}>Clinic name:</Col>
-                  <Col md={7}>
+                  <Col md={2} className="d-md-none">
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        className={"custom-apptcarddropdowntoggle"}
+                        id="dropdown-basic"
+                      >
+                        Change Clinic
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu
+                        className={"custom-apptcardclinicdropdownmenu"}
+                      >
+                        {specialistClinics.map((clinic, index) => (
+                          <React.Fragment key={index}>
+                            <Dropdown.Item
+                              className={"custom-apptcardclinicdropdownitem"}
+                              onClick={() => changeClinicHandler(index)}
+                              key={index}
+                            >
+                              {clinic.clinicName.replace("&amp;", "&")} -{" "}
+                              {specialistLocs[index].locationName}
+                            </Dropdown.Item>
+                            {index !== specialistClinics.length - 1 && (
+                              <Dropdown.Divider />
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Col>
+                  <Col md={3} className={"custom-apptcardclinictitle"}>
+                    Clinic name:
+                  </Col>
+                  <Col md={7} className={"custom-apptcardclinicdetails"}>
                     {specialistClinics[startclinicval].clinicName.replace(
                       "&amp;",
                       "&"
-                    )} - {specialistLocs[startclinicval].locationName}
+                    )}{" "}
+                    - {specialistLocs[startclinicval].locationName}
                   </Col>
-                  <Col md={2}>
+                  <Col md={2} className="d-none d-md-block">
                     <Dropdown>
                       <Dropdown.Toggle
-                        style={{
-                          backgroundColor: "#40679E",
-                          borderColor: "#40679E",
-                        }}
+                        className={"custom-apptcarddropdowntoggle"}
                         id="dropdown-basic"
                       >
                         Change Clinic
@@ -281,7 +321,8 @@ const ClinicAppointmentCard = ({
                             onClick={() => changeClinicHandler(index)}
                             key={index}
                           >
-                            {clinic.clinicName.replace("&amp;", "&")} - {specialistLocs[index].locationName}
+                            {clinic.clinicName.replace("&amp;", "&")} -{" "}
+                            {specialistLocs[index].locationName}
                           </Dropdown.Item>
                         ))}
                       </Dropdown.Menu>
@@ -290,43 +331,139 @@ const ClinicAppointmentCard = ({
                 </Row>
               ) : (
                 <Row>
-                  <Col md={3}>Clinic name:</Col>
-                  <Col md={7}>
+                  <Col md={3} className={"custom-apptcardclinictitle"}>
+                    Clinic name:
+                  </Col>
+                  <Col md={7} className={"custom-apptcardclinicdetails"}>
                     {specialistClinics[startclinicval].clinicName.replace(
                       "&amp;",
                       "&"
-                    )} - {specialistLocs[startclinicval].locationName}
+                    )}{" "}
+                    - {specialistLocs[startclinicval].locationName}
                   </Col>
                 </Row>
               )}
             </Card.Title>
           </Card.Header>
           <Card.Body>
-            <Row style={{ fontSize: "20px" }}>
-              <Col md={3}>Clinic address:</Col>
-              <Col md={9}>
+            <Row className={"custom-apptcardrow"}>
+              <Col md={3} className={"custom-apptcardclinictitle"}>
+                Clinic address:
+              </Col>
+              <Col md={9} className={"custom-apptcardclinicdetails"}>
                 {specialistClinics[startclinicval].clinicAddress.replace(
                   "&amp;",
                   "&"
                 )}
               </Col>
             </Row>
-            <Row style={{ marginTop: "20px" }}>
-              <Col md={3} style={{ fontSize: "20px" }}>
+            <Row className={"custom-apptcardrow"}>
+              <Col md={3} className={"custom-apptcardclinictitle"}>
                 Available dates:
               </Col>
-              <Col md={9} style={{ fontSize: "16px" }}>
+              <Col md={9} className="d-md-none">
+                <Row className={"custom-apptcardrow2"}>
+                  <Col>
+                    <Button
+                      onClick={previousweekHandler}
+                      disabled={!leftActive}
+                      className={"custom-apptcardarrowbtn"}
+                    >
+                      &lt;
+                    </Button>
+                  </Col>
+                  <Col>
+                    {daysOfWeek.map((_, index) => {
+                      const date = displayedDate;
+                      const today = displayedDate.getDay();
+                      date.setDate(date.getDate() + (index - today));
+                      const options2 = { weekday: "short" };
+                      const myday = date.toLocaleDateString("en-US", options2);
+                      const selectyear = date.getFullYear();
+
+                      const formattedDate = date.toLocaleDateString(
+                        undefined,
+                        options
+                      );
+
+                      const isDisabled =
+                        date.setHours(0, 0, 0, 0) <
+                        todayDate.setHours(0, 0, 0, 0);
+
+                      return (
+                        <Col key={index}>
+                          {specialistClinics[startclinicval].clinicHours
+                            .split("; ")
+                            .map((item, i) => {
+                              const [day, hours] = item.split(" : ");
+
+                              if (
+                                !/\d/.test(day) &&
+                                day !== "Public Holiday" &&
+                                day === myday &&
+                                !hours.includes("Closed")
+                              ) {
+                                return (
+                                  <>
+                                    <Row
+                                      key={i}
+                                      className="custom-apptcardcol3"
+                                    >
+                                      <Button
+                                        className={
+                                          activeIndex === index &&
+                                          selectedDate === formattedDate
+                                            ? "custom-apptcarddaybtn1"
+                                            : "custom-apptcarddaybtn2"
+                                        }
+                                        onClick={() => {
+                                          onClickHandler(hours);
+                                          setActiveIndex(index);
+                                          setSelectedDate(formattedDate);
+                                          setSelectedYear(selectyear);
+                                        }}
+                                        disabled={isDisabled}
+                                        block
+                                      >
+                                        {formattedDate}
+                                      </Button>
+                                    </Row>
+                                  </>
+                                );
+                              }
+
+                              return null;
+                            })}
+                        </Col>
+                      );
+                    })}
+                  </Col>
+                  <Col>
+                    <Button
+                      onClick={nextweekHandler}
+                      disabled={!rightActive}
+                      className={"custom-apptcardarrowbtn"}
+                    >
+                      &gt;
+                    </Button>
+                  </Col>
+                </Row>
+              </Col>
+              <Col
+                md={9}
+                className={"d-none d-md-block custom-apptcardclinicdetails"}
+              >
                 <Row>
                   <Col md={1}>
                     <Button
                       onClick={previousweekHandler}
                       disabled={!leftActive}
-                      style={{ backgroundColor: "black", borderColor: "black" }}
+                      className={"custom-apptcardarrowbtn"}
                     >
                       &lt;
                     </Button>
                   </Col>
-                  <Col md={10}>
+                  <Col md={10} className={"custom-apptcardcol5"}>
                     <Row>
                       {daysOfWeek.map((_, index) => {
                         const date = displayedDate;
@@ -337,7 +474,7 @@ const ClinicAppointmentCard = ({
                           "en-US",
                           options2
                         );
-                        const selectyear =  date.getFullYear();
+                        const selectyear = date.getFullYear();
 
                         const formattedDate = date.toLocaleDateString(
                           undefined,
@@ -349,10 +486,7 @@ const ClinicAppointmentCard = ({
                           todayDate.setHours(0, 0, 0, 0);
 
                         return (
-                          <Col
-                            key={index}
-                            style={{ flex: 1, textAlign: "center" }}
-                          >
+                          <Col key={index} className={"custom-apptcardcol1"}>
                             {specialistClinics[startclinicval].clinicHours
                               .split("; ")
                               .map((item, i) => {
@@ -365,40 +499,30 @@ const ClinicAppointmentCard = ({
                                   !hours.includes("Closed")
                                 ) {
                                   return (
-                                    <Col key={i}>
-                                      <Button
-                                        style={{
-                                          height: "50px",
-                                          minWidth: "70px",
-                                          maxWidth: "100px",
-                                          fontSize: "14px",
-                                          flex: "1 1 auto",
-                                          borderColor:
-                                            activeIndex === index &&
-                                            selectedDate === formattedDate
-                                              ? "black"
-                                              : isDisabled
-                                              ? "grey"
-                                              : "#40679E",
-                                          backgroundColor:
-                                            activeIndex === index &&
-                                            selectedDate === formattedDate
-                                              ? "black"
-                                              : isDisabled
-                                              ? "grey"
-                                              : "#40679E",
-                                        }}
-                                        onClick={() => {
-                                          onClickHandler(hours);
-                                          setActiveIndex(index);
-                                          setSelectedDate(formattedDate);
-                                          setSelectedYear(selectyear);
-                                        }}
-                                        disabled={isDisabled}
+                                    <>
+                                      <Col
+                                        key={i}
+                                        className="custom-apptcardcol2"
                                       >
-                                        {formattedDate}
-                                      </Button>
-                                    </Col>
+                                        <Button
+                                          className={
+                                            activeIndex === index &&
+                                            selectedDate === formattedDate
+                                              ? "custom-apptcarddaybtn1"
+                                              : "custom-apptcarddaybtn2"
+                                          }
+                                          onClick={() => {
+                                            onClickHandler(hours);
+                                            setActiveIndex(index);
+                                            setSelectedDate(formattedDate);
+                                            setSelectedYear(selectyear);
+                                          }}
+                                          disabled={isDisabled}
+                                        >
+                                          {formattedDate}
+                                        </Button>
+                                      </Col>
+                                    </>
                                   );
                                 }
 
@@ -413,7 +537,7 @@ const ClinicAppointmentCard = ({
                     <Button
                       onClick={nextweekHandler}
                       disabled={!rightActive}
-                      style={{ backgroundColor: "black", borderColor: "black" }}
+                      className={"custom-apptcardarrowbtn"}
                     >
                       &gt;
                     </Button>
@@ -421,11 +545,11 @@ const ClinicAppointmentCard = ({
                 </Row>
               </Col>
             </Row>
-            <Row style={{ marginTop: "20px" }}>
-              <Col md={3} style={{ fontSize: "20px" }}>
+            <Row className={"custom-apptcardrow"}>
+              <Col md={3} className={"custom-apptcardclinictitle"}>
                 Available times:
               </Col>
-              <Col md={9} style={{ fontSize: "16px" }}>
+              <Col md={9} className={"custom-apptcardclinicdetails2"}>
                 {showMyHours && (
                   <ShowClinicHours
                     hours={currentHours}
@@ -438,11 +562,11 @@ const ClinicAppointmentCard = ({
               </Col>
             </Row>
             <hr />
-            <Row style={{ marginTop: "20px" }}>
-              <Col md={3} className="mr-auto" style={{ fontSize: "20px" }}>
+            <Row className={"custom-apptcardrow"}>
+              <Col md={3} className={"custom-apptcardclinictitle"}>
                 Your selected appointment:
               </Col>
-              <Col md={6} style={{ fontSize: "18px", fontWeight: "lighter" }}>
+              <Col md={6} className={"custom-apptcardclinicdetails1"}>
                 <p>
                   {specialistTitle ? specialistTitle : "Dr"} {specialistName}
                 </p>
@@ -450,20 +574,12 @@ const ClinicAppointmentCard = ({
                   {selectedClinic} - {selectedClinicAddress}
                   {"  "}
                 </p>
-                {selectedDate} {selectedYear} {selectedTime ? `at ${selectedTime} hrs` : null}
+                {selectedDate} {selectedYear}{" "}
+                {selectedTime ? `at ${selectedTime} hrs` : null}
               </Col>
-              <Col md={3} style={{ fontSize: "24px", position: "relative" }}>
+              <Col md={3} className={"custom-apptcardcol2"}>
                 <Button
-                  style={{
-                    backgroundColor: "black",
-                    fontSize: "20px",
-                    color: "white",
-                    fontWeight: "bold",
-                    borderColor: "black",
-                    position: "absolute",
-                    bottom: 0,
-                    right: 30,
-                  }}
+                  className={"custom-apptcardconfirmapptbtn"}
                   onClick={confirmAppointmentHandler}
                   disabled={!selectedTime}
                 >
@@ -477,11 +593,20 @@ const ClinicAppointmentCard = ({
       {showConfirmAppointmentPage && (
         <>
           <Card.Header>
-            <Row>
-              <Col md={3} className="mr-auto" style={{ fontSize: "20px" }}>
+            <Row className={"custom-apptcardrow"}>
+              <Col md={3} className={"d-md-none"}>
+                {" "}
+                <Button
+                  className={"custom-apptcardchangeapptbtn"}
+                  onClick={reverseAppointmentHandler}
+                >
+                  Change appointment
+                </Button>
+              </Col>
+              <Col md={3} className={"custom-apptcardclinictitle"}>
                 Appointment details:
               </Col>
-              <Col md={6} style={{ fontSize: "18px", fontWeight: "lighter" }}>
+              <Col md={6} className={"custom-apptcardclinicdetails1"}>
                 <p>
                   {specialistTitle ? specialistTitle : "Dr"} {specialistName}
                 </p>
@@ -489,20 +614,13 @@ const ClinicAppointmentCard = ({
                   {selectedClinic} - {selectedClinicAddress}
                   {"  "}
                 </p>
-                {selectedDate} {selectedYear} {selectedTime ? `at ${selectedTime} hrs` : null}
+                {selectedDate} {selectedYear}{" "}
+                {selectedTime ? `at ${selectedTime} hrs` : null}
               </Col>
-              <Col md={3} style={{ position: "relative" }}>
+              <Col md={3} className={"d-none d-md-block custom-apptcardcol6"}>
                 {" "}
                 <Button
-                  style={{
-                    backgroundColor: "black",
-                    fontSize: "16px",
-                    color: "white",
-                    fontWeight: "bold",
-                    borderColor: "black",
-                    position: "absolute",
-                    right: "30px",
-                  }}
+                  className={"custom-apptcardchangeapptbtn"}
                   onClick={reverseAppointmentHandler}
                 >
                   Change appointment
@@ -512,27 +630,19 @@ const ClinicAppointmentCard = ({
           </Card.Header>
           <Card.Body>
             <Form onSubmit={submitConfirmHandler}>
-              <Row>
-                <Col md={3} className="mr-auto" style={{ fontSize: "20px" }}>
+              <Row className={"custom-apptcardrow"}>
+                <Col md={3} className={"custom-apptcardclinictitle"}>
                   Enter personal details:
                 </Col>
-                <Col md={9}>
+                <Col md={9} className={"custom-apptcardclinicdetails1"}>
                   <Row>
-                    <Col md={3} style={{ fontSize: "16px" }}>
+                    <Col md={3} className={"custom-apptcardclinictitle"}>
                       {" "}
-                      <Form.Label
-                        className="float-start"
-                        style={{
-                          fontSize: "18px",
-                          marginTop: "10px",
-                          marginBottom: "10px",
-                          fontWeight: "lighter",
-                        }}
-                      >
+                      <Form.Label className={"custom-apptcardapptformlabel"}>
                         Your Name*:
                       </Form.Label>
                     </Col>
-                    <Col md={9} style={{ fontSize: "18px" }}>
+                    <Col md={9} className={"custom-apptcardclinicdetails2"}>
                       {" "}
                       <Form.Control
                         type="text"
@@ -540,34 +650,19 @@ const ClinicAppointmentCard = ({
                         onChange={(e) => setName(e.target.value)}
                         value={name}
                         placeholder="Enter your name"
-                        className="mr-sm-2 ml-sm-5"
-                        style={{
-                          fontSize: "18px",
-                          width: "265px",
-                          marginTop: "5px",
-                          marginBottom: "10px",
-                          marginRight: "5px",
-                        }}
+                        className={"custom-apptcardapptformfield"}
                         required
                       ></Form.Control>
                     </Col>
                   </Row>
                   <Row>
-                    <Col md={3} style={{ fontSize: "16px" }}>
+                    <Col md={3} className={"custom-apptcardclinictitle"}>
                       {" "}
-                      <Form.Label
-                        className="float-start"
-                        style={{
-                          fontSize: "18px",
-                          marginTop: "10px",
-                          marginBottom: "10px",
-                          fontWeight: "lighter",
-                        }}
-                      >
+                      <Form.Label className={"custom-apptcardapptformlabel"}>
                         Your Email*:
                       </Form.Label>
                     </Col>
-                    <Col md={9} style={{ fontSize: "18px" }}>
+                    <Col md={9} className={"custom-apptcardclinicdetails2"}>
                       {" "}
                       <Form.Control
                         type="email"
@@ -576,33 +671,20 @@ const ClinicAppointmentCard = ({
                         onBlur={activateJoinHandler}
                         value={email}
                         placeholder="Enter your email"
-                        className="mr-sm-2 ml-sm-5"
-                        style={{
-                          fontSize: "18px",
-                          width: "265px",
-                          marginTop: "5px",
-                          marginBottom: "10px",
-                          marginRight: "5px",
-                        }}
+                        className={"custom-apptcardapptformfield"}
                         required
                       ></Form.Control>
                     </Col>
+                    {!emailValid && <p className={"custom-apptcardvalidprompts"}>Please enter a valid email address.</p>}
+
                   </Row>
                   <Row>
-                    <Col md={3}>
-                      <Form.Label
-                        className="float-start"
-                        style={{
-                          fontSize: "18px",
-                          marginTop: "10px",
-                          marginBottom: "10px",
-                          fontWeight: "lighter",
-                        }}
-                      >
+                    <Col md={3} className={"custom-apptcardclinictitle"}>
+                      <Form.Label className={"custom-apptcardapptformlabel"}>
                         Your Phone*:
                       </Form.Label>
                     </Col>
-                    <Col md={9}>
+                    <Col md={9} className={"custom-apptcardclinicdetails2"}>
                       <Form.Control
                         type="text"
                         name="phone"
@@ -610,33 +692,20 @@ const ClinicAppointmentCard = ({
                         onBlur={activatePhoneHandler}
                         value={phone}
                         placeholder="Enter your phone number"
-                        className="mr-sm-2 ml-sm-5"
-                        style={{
-                          fontSize: "18px",
-                          width: "265px",
-                          marginTop: "5px",
-                          marginBottom: "10px",
-                          marginRight: "5px",
-                        }}
+                        className={"custom-apptcardapptformfield"}
                         required
                       ></Form.Control>
                     </Col>
+                    {!phoneValid && <p className={"custom-apptcardvalidprompts"}>Please enter a valid phone number (8 digits only).</p>}
+
                   </Row>
                   <Row>
-                    <Col md={3}>
-                      <Form.Label
-                        className="float-start"
-                        style={{
-                          fontSize: "18px",
-                          marginTop: "10px",
-                          marginBottom: "10px",
-                          fontWeight: "lighter",
-                        }}
-                      >
+                    <Col md={3} className={"custom-apptcardclinictitle"}>
+                      <Form.Label className={"custom-apptcardapptformlabel"}>
                         Message to Clinic (optional):
                       </Form.Label>
                     </Col>
-                    <Col md={9}>
+                    <Col md={9} className={"custom-apptcardclinicdetails2"}>
                       <Form.Control
                         type="text"
                         name="message"
@@ -644,37 +713,20 @@ const ClinicAppointmentCard = ({
                         onChange={(e) => setMessage(e.target.value)}
                         value={message}
                         placeholder="Enter your message"
-                        className="mr-sm-2 ml-sm-5"
                         rows={4}
-                        style={{
-                          fontSize: "18px",
-                          width: "265px",
-                          marginTop: "5px",
-                          marginBottom: "10px",
-                          marginRight: "5px",
-                        }}
+                        className={"custom-apptcardapptformfield"}
                       ></Form.Control>
                     </Col>
                   </Row>
                 </Col>
               </Row>
-              <Row>
+              <Row className={"custom-apptcardrow"}>
                 <Col md={9}></Col>
 
-                <Col md={3} style={{ position: "relative" }}>
+                <Col md={3} className={"custom-apptcardcol7"}>
                   <Button
                     type="submit"
-                    style={{
-                      backgroundColor: "#40679E",
-                      fontSize: "20px",
-                      color: "white",
-                      fontWeight: "bold",
-                      borderColor: "black",
-                      position: "absolute",
-                      width: "200px",
-                      right: "30px",
-                      bottom: "0",
-                    }}
+                    className={"custom-apptcardsubmitbtn2"}
                     disabled={
                       !(
                         !!name &&

@@ -8,23 +8,19 @@ const AppointmentScreen = ({ specialist, setShowModal }) => {
     <>
       <Modal show={true} className="customModal">
         <Modal.Header>
-          <Modal.Title>
+          <Modal.Title className={"custom-modaltitle"}>
             Book appointment with {specialist.title ? specialist.title : "Dr"}{" "}
             {specialist.name}
           </Modal.Title>
           <Button
-            style={{
-              backgroundColor: "red",
-              borderColor: "red",
-              fontWeight: "bold",
-            }}
+            className={"custom-appointmentscreenbutton"}
             onClick={() => setShowModal(false)}
           >
             X
           </Button>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body className={"custom-modalbody"}>
           <Row>
             <Col md={12}>
               <ClinicAppointmentCard

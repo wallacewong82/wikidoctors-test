@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
@@ -8,8 +8,15 @@ import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 import Meta from "../components/Meta";
+import { PageContext } from "../App";
 
 const RegisterDoctorScreen = () => {
+  const { setCurrentPage } = useContext(PageContext);
+
+  useEffect(() => {
+    setCurrentPage("doctorsignup");
+  }, [setCurrentPage]);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

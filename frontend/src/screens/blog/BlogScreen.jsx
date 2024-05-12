@@ -19,8 +19,8 @@ const BlogScreen = () => {
     <>
         <Meta title="Blog"/>
 
-      <Container style={{ height: 100 }}></Container>
-      <h1>Blog Articles</h1>
+      <Container className={"custom-blogscreencontainer"}></Container>
+      <h1 className={"custom-blogscreenheader"}>Blog Articles</h1>
       {isLoading ? (
         <Loader />
       ) : error ? (

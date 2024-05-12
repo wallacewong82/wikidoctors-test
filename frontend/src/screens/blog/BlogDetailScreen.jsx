@@ -21,8 +21,8 @@ const BlogDetailScreen = () => {
   const formatteddate = blogdate ?  blogdate.toLocaleDateString('en-US', options): null;
   return (
     <>
-      <Container style={{ height: 100 }}></Container>
-      <Link className="btn btn-dark my-3" to={`/blogs`}>
+      <Container className="custom-blogdetailcontainer" ></Container>
+      <Link className="btn btn-dark my-3 custom-blogdetailbackbtn" to={`/blogs`}>
         Back to Blog
       </Link>
       {isLoading ? (
@@ -33,27 +33,29 @@ const BlogDetailScreen = () => {
         </Message>
       ) : (
         <Container>
-          <Row>
-            <Button style={{ fontSize: "20px", maxWidth:"250px", borderColor:"#40679E", color:"#40679E", backgroundColor:"white" }} className="btn-light float-start" disabled>{blogPost.category.toUpperCase()}</Button>
-            <h1>
+          <Row className="custom-blogdetailrow1">
+            <Button className="btn-light float-start custom-blogdetailbtn" disabled>{blogPost.category.toUpperCase()}</Button>
+            <h1 className="custom-blogdetailh1">
               {blogPost.title}
               {"  "}
             </h1>
-            <p style={{ fontSize: "24px" }}>Written by <b>{blogPost.authorname}</b></p>
-            <p style={{ fontSize: "20px" }}>Posted on: {(/^[0-9]+$/.test(blogPost.posteddate))?(formatteddate):((blogPost.posteddate)) }</p>
-              <i>({blogPost.contentduration} read)</i>
+            <p className="custom-blogdetailp1" >Written by <b>{blogPost.authorname}</b></p> 
+            <p className="custom-blogdetailp2">Posted on: {(/^[0-9]+$/.test(blogPost.posteddate))?(formatteddate):((blogPost.posteddate)) }{"  "}<i>({blogPost.contentduration} read)</i></p>
+             
             
-            <Col className="d-flex" style={{ alignItems: "center", justifyContent: "center" }}>
+            <Col className="d-flex custom-blogdetailcol1" >
               <Image
-                src={blogPost.blogimage}
-                style={{ width: "500px" }}
+              //  src={blogPost.blogimage}
+              src={`/api/webimage/663f68aaa3db0d582d1d4cdc`}
+              alt={"WikiDoctors.com logo"}
+                className="custom-blogdetailimg"
               ></Image>
             </Col>
           </Row>
-          <Row>
-            <p style={{ fontSize: "24px" }}>{blogPost.content}</p>
+          <Row className="custom-blogdetailrow2">
+            <p className="custom-blogdetailp3">{blogPost.content}</p>
           </Row>
-          <Row>
+          <Row className="custom-blogdetailrow3">
             <BlogAuthor
               authorname={blogPost.authorname}
               authorpic={blogPost.authorimage}

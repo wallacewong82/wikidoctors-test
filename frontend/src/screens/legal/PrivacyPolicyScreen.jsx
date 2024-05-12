@@ -10,7 +10,7 @@ const PrivacyPolicyScreen = () => {
         <h1>Privacy Policy</h1>
         <br />
         <Row style={{ fontSize: "20px", fontWeight: "none", margin: "5px" }}>
-          At HealthChannel, we are committed to protecting the privacy and
+          At WikiDoctors, we are committed to protecting the privacy and
           security of our users' personal information.{" "}
         </Row>
         <br />
@@ -130,11 +130,11 @@ const PrivacyPolicyScreen = () => {
           <p style={{ marginLeft: "-10px", marginTop: "10px" }}>
             If you have any questions or concerns about our Privacy Statement or
             the handling of your personal information, please contact us at{" "}
-            <a href="mailto:support@healthchannel.sg">support@healthchannel.sg</a>.{" "}
+            <a href="mailto:contact@wikidoctors.com">contact@wikidoctors.com</a>.{" "}
           </p>
         </Row>{" "}
         <Row style={{ fontSize: "20px", fontWeight: "none", margin: "5px" }}>
-          By using HealthChannel, you acknowledge that you have read,
+          By using WikiDoctors, you acknowledge that you have read,
           understood, and agreed to this Privacy Statement. Thank you for
           trusting us with your personal information.
         </Row>

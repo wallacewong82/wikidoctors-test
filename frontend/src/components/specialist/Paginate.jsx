@@ -4,8 +4,10 @@ import { LinkContainer } from "react-router-bootstrap";
 import "../../assets/styles/index.css";
 
 const Paginate = ({ pages, page, link, isAdmin = false, keyword = "" }) => {
+  const isSmallScreen = window.innerWidth < 768;
+  const maxPagesToShow = isSmallScreen ? 4 : 9;
   const startPage = Math.max(1, page - 5);
-  const endPage = Math.min(pages, startPage + 9);
+  const endPage = Math.min(pages, startPage + maxPagesToShow);
   const showEllipsis = endPage > 4 ? true : false;
   const limitedPages = Array.from(
     { length: endPage - startPage + 1 },

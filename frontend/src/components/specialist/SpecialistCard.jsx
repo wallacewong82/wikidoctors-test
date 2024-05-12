@@ -7,7 +7,7 @@ const SpecialistCard = ({
   setSelectedSpecialist,
   setShowModal,
 }) => {
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState("");
   useEffect(() => {
     // Construct the image URL using the fileId from specialist.image
     const imageSrc = `/api/image/${specialist.image}`;
@@ -18,148 +18,73 @@ const SpecialistCard = ({
     setSelectedSpecialist(specialist);
   };
   const isVerified = specialist.verified; //to rejig data to add verified column
-  const appointmentEnabled = (
-    specialist.clinic.length > 0 ? true : false
-  );
+  const appointmentEnabled = specialist.clinic.length > 0 ? true : false;
 
   return (
     <Card
-      className="my-1 p-1 rounded"
+      //className="my-1 p-1 rounded"
+      className={"custom-specialistcard"}
       key={specialist._id}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "310px",
-        height: "400px",
-      }}
     >
       {isVerified ? (
-        <Button
-          style={{
-            height: "16px",
-            maxWidth: "max-content",
-            backgroundColor: "maroon",
-            fontSize: "12px",
-            borderColor: "maroon",
-            display: "flex",
-            alignItems: "center",
-            marginLeft: "auto",
-          }}
-        >
+        <Button className={"custom-specialistcardverifiedbutton"}>
           Verified
         </Button>
       ) : null}
-      <Row style={{ maxHeight: "40px", marginTop: "5px", textAlign: "center" }}>
+      <Row className={"custom-specialistcardrow"}>
         <Link
           to={`/specialists/profile/${specialist._id}`}
-          style={{ textDecoration: "none" }}
+          className={"custom-specialistcardlink"}
         >
-          <Card.Title
-            style={{ fontSize: "19px", fontWeight: "bold", marginTop: "5px" }}
-          >
-            <h5 style={{ color: "black" }}>
+          <Card.Title className={"custom-specialistcardtitle"}>
+            <h5 className={"custom-hfive"} style={{ color: "black" }}>
               {specialist.title ? specialist.title : "Dr"} {specialist.name}
             </h5>
           </Card.Title>
         </Link>
-        <hr
-          style={{ maxWidth: "324px", marginLeft: "7px", marginTop: "-7px" }}
-        />
+        <hr className={"custom-specialistcardhr"} />
       </Row>
 
       <Row>
-        <Row
-          style={{
-            height: "55px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "400px",
-            marginLeft: "1px",
-          }}
-        >
+        <Row className={"custom-specialistcardrow2"}>
           {specialist.specialty.length > 1 ? (
             specialist.specialty.map((specialtyfocus) =>
               specialtyfocus.specialty ? (
                 <Button
                   key={specialtyfocus._id}
-                  style={{
-                    height: "22px",
-                    maxWidth: "max-content",
-                    fontSize: "13px",
-                    backgroundColor: "grey",
-                    borderColor: "grey",
-                    borderRadius: "1em 1em 1em 1em",
-                    marginLeft: "1px",
-                    marginTop: "1px",
-                    marginBottom: "1px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
+                  className={"custom-specialistcardspecialty"}
+                  disabled
                 >
                   {specialtyfocus.specialty}{" "}
                 </Button>
               ) : null
             )
           ) : (
-            <Button
-              style={{
-                height: "22px",
-                maxWidth: "max-content",
-                fontSize: "12px",
-                backgroundColor: "grey",
-                borderColor: "grey",
-                borderRadius: "1em 1em 1em 1em",
-                marginLeft: "2px",
-                marginTop: "1px",
-                marginBottom: "1px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+            <Button className={"custom-specialistcardspecialty"} disabled>
               {specialist.specialty[0].specialty}
             </Button>
           )}
         </Row>
       </Row>
       <Row
-        style={{
-          height: "230px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+      className={"custom-specialistcardrow3"}
       >
         <Link to={`/specialists/profile/${specialist._id}`}>
           <Card.Img
             src={imageUrl}
-            style={{
-              // borderWidth: "1px",
-              // borderStyle: "solid",
-              // borderColor:"black",
-              maxHeight: "200px",
-              maxWidth: "250px",
-              minWidth: "150px",
-            }}
+            className={"custom-specialistcardimg"}
+            alt={`image for ${specialist.name}` }
           />
         </Link>
       </Row>
       <Card.Body>
         <Row
-          style={{
-            height: "50px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+        className={"custom-specialistcardrow4"}
         >
           <Col md={4}>
             <Link to={`/specialists/profile/${specialist._id}`}>
               <Button
-                className="btn-block btn-dark"
+              className={"custom-specialistcardprofilebutton"}
                 type="button"
                 onClick={() => {
                   setSelectedSpecialist(specialist);
@@ -171,17 +96,10 @@ const SpecialistCard = ({
           </Col>
           <Col md={8}>
             <Button
-              className="btn-block"
+            className={!appointmentEnabled
+              ? "custom-specialistcardapptbutton1":"custom-specialistcardapptbutton2" }
+             //className="btn-block"
               type="button"
-              style={
-                !appointmentEnabled
-                  ? { backgroundColor: "lightgrey", borderColor: "lightgrey" }
-                  : {
-                      backgroundColor: "white",
-                      borderColor: "#40679E",
-                      color: "#40679E",
-                    }
-              }
               onClick={displaySpecHandler}
               disabled={!appointmentEnabled}
             >

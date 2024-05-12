@@ -38,7 +38,7 @@ const newAppointment = asyncHandler(async (req, res) => {
   try {
     const createdAppointment = await appointment.save();
     const appointmentContent =
-      "Thank you for booking an appointment with HealthChannel.sg! \n\nYou indicated your preferred appointment date with: " +
+      "Thank you for booking an appointment with WikiDoctors.com! \n\nYou indicated your preferred appointment date with: " +
       doctorname +
       " at " +
       clinicname +
@@ -61,7 +61,7 @@ const newAppointment = asyncHandler(async (req, res) => {
           patientComments +
           "\n\n"
         : "") +
-      "We will reach the clinic and confirm your appointment via email within the next 2 hours. \n\nIf we do not get a confirmation from the clinic, we will send an email with an alternative preferred provider within the next 6 hours for your confirmation.\n\nThank you for your patience and trust in us.\n\nWe look forward to hearing from you again!\n\nSincerely,\nThe HealthChannel.sg team";
+      "We will reach the clinic and confirm your appointment via email within the next 2 hours. \n\nIf we do not get a confirmation from the clinic, we will send an email with an alternative preferred provider within the next 6 hours for your confirmation.\n\nThank you for your patience and trust in us.\n\nWe look forward to hearing from you again!\n\nSincerely,\nThe WikiDoctors.com team";
     sendEmail({
       to: patientEmail,
       content: appointmentContent,
@@ -133,12 +133,12 @@ const updateAppointment = asyncHandler(async (req, res) => {
     appointment.bookingStatus = bookingStatus;
     const updatedAppointment = await appointment.save();
     if (bookingStatus === "confirmed") {
-      const eventtitle = "<HealthChannel.sg> Your appointment confirmation";
+      const eventtitle = "<WikiDoctors.com> Your appointment confirmation";
       const appointmentContent =
         "Dear" +
         patientName +
         ",\n" +
-        "Thank you again for booking an appointment with HealthChannel.sg! \n\nYour appointment is now confirmed for: " +
+        "Thank you again for booking an appointment with WikiDoctors.com \n\nYour appointment is now confirmed for: " +
         doctorname +
         " at " +
         clinicname +
@@ -161,7 +161,7 @@ const updateAppointment = asyncHandler(async (req, res) => {
             patientComments +
             "\n\n"
           : "") +
-        "Thank you for your support!\n\nSincerely,\nThe HealthChannel.sg team";
+        "Thank you for your support!\n\nSincerely,\nThe WikiDoctors.com team";
       sendEmail({
         to: patientEmail,
         content: appointmentContent,
@@ -170,7 +170,7 @@ const updateAppointment = asyncHandler(async (req, res) => {
       console.log("email sent confirmed");
     }
     if (bookingStatus === "canceled") {
-      const eventtitle = "<HealthChannel.sg> Your appointment is canceled";
+      const eventtitle = "<WikiDoctors.com> Your appointment is canceled";
       const appointmentContent =
         "Dear" +
         patientName +
@@ -198,7 +198,7 @@ const updateAppointment = asyncHandler(async (req, res) => {
             patientComments +
             "\n\n"
           : "") +
-        "We hope we will be able to serve you again next time.\n\nWe look forward to hearing from you again!\n\nSincerely,\nThe HealthChannel.sg team";
+        "We hope we will be able to serve you again next time.\n\nWe look forward to hearing from you again!\n\nSincerely,\nThe WikiDoctors.com team";
       sendEmail({
         to: patientEmail,
         content: appointmentContent,

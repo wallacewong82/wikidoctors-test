@@ -3,9 +3,9 @@ import { Row, Col, Image, Card } from "react-bootstrap";
 
 const BlogAuthor = ({ authorname, authorpic, authorprofile }) => {
   return (
-    <Card style={{ marginTop: "30px" }}>
+    <Card className="custom-blogauthorcard">
       <Card.Header>
-        <span>
+        <span className="custom-blogauthorspan1">
           {" "}
           <b>Disclaimer</b>: The purpose of this article is to increase
           awareness of prevalent health concerns. However, it is important to
@@ -17,18 +17,18 @@ const BlogAuthor = ({ authorname, authorpic, authorprofile }) => {
       </Card.Header>
       <Card.Body>
         <Row>
-          <Col sm={3}>
+          <Col sm={3} className="custom-blogauthorcol1">
             <Image
               src={authorpic}
-              style={{ marginLeft: "40px", borderRadius: "100%", maxWidth:"200px" }}
+              className="custom-blogauthorimg"
             ></Image>
           </Col>
-          <Col sm={9}>
+          <Col sm={9} className="custom-blogauthorcol2">
             <Card.Text>
-              <p style={{ fontWeight: "bold", fontSize: "24px" }}>
+              <p className="custom-blogauthorp1">
                 {authorname} - Author
               </p>
-              <span>{authorprofile}</span>
+              <span className="custom-blogauthorspan2">{authorprofile}</span>
             </Card.Text>
           </Col>
         </Row>
