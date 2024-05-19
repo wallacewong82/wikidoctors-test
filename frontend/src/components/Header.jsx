@@ -35,6 +35,8 @@ const Header = () => {
   const [activeSpecKey, setActiveSpecKey] = useState(null);
   const [activeAdminKey, setActiveAdminKey] = useState(null);
   const [activePrivateKey, setActivePrivateKey] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   const chooseSpecialistHandler = (value) => {
     setActiveSpecKey(value);
     setActiveKey(value);
@@ -55,6 +57,24 @@ const Header = () => {
     setActiveAdminKey(null);
     setActivePrivateKey("private");
   };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    if ((isMobile) && expanded) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.body.classList.remove('no-scroll');
+    };
+  }, [isMobile, expanded]);
 
   useEffect(() => {
     if (currentPage === "specialists") {
@@ -76,7 +96,7 @@ const Header = () => {
       setActiveSpecKey(null);
       setActiveAdminKey(null);
       setActivePrivateKey(null);
-    } else if (currentPage === "doctorsignup"){
+    } else if (currentPage === "doctorsignup") {
       setActiveKey("doctorsignup");
       setActiveSpecKey(null);
       setActiveAdminKey(null);
@@ -140,25 +160,7 @@ const Header = () => {
     const phoneNumber = "6581234567"; // need to change this phone number later
     window.open(`tel:${phoneNumber}`);
   };
-  //   useEffect(() => {
-  //     const handleScroll = () => {
-  //         // Check if the user has scrolled down enough to unfix the navbar
-  //         if (window.scrollY > 100) {
-  //             setIsFixed(false);
-  //         } else {
-  //             setIsFixed(true);
-  //         }
-  //     };
-
-  //     // Attach the scroll event listener
-  //     window.addEventListener('scroll', handleScroll);
-
-  //     // Remove the event listener on component unmount
-  //     return () => {
-  //         window.removeEventListener('scroll', handleScroll);
-  //     };
-  // }, []); // Only run this effect once on component mount
-
+  
   return (
     <header>
       <Navbar
@@ -230,36 +232,43 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("cardiothoracic")}
                     >
                       Cardiothoracic Surgery
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("dental")}
                     >
                       Dental Surgery
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("general")}
                     >
                       General Surgery
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("hand")}
                     >
                       Hand Surgery
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("neurosurgery")}
                     >
                       Neurosurgery
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("orthopaedic")}
                     >
                       Orthopaedic Surgery
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("plastic")}
                     >
                       Plastic Surgery
@@ -270,11 +279,13 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("anaesthesiology")}
                     >
                       Anaesthesiology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("emergency")}
                     >
                       Emergency Medicine
@@ -285,21 +296,25 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("medical onco")}
                     >
                       Medical Oncology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("diagnostic rad")}
                     >
                       Diagnostic Radiology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("nuclear med")}
                     >
                       Nuclear Medicine
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("radiation onco")}
                     >
                       Radiation Oncology
@@ -310,51 +325,61 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("cardiology")}
                     >
                       Cardiology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("endocrin")}
                     >
                       Endocrinology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("gastroenter")}
                     >
                       Gastroenterology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("geriatric")}
                     >
                       Geriatric Medicine
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("haemato")}
                     >
                       Haematology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("infectious")}
                     >
                       Infectious Diseases
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("internal")}
                     >
                       Internal Medicine
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("pathology")}
                     >
                       Pathology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("rheumato")}
                     >
                       Rheumatology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("renal")}
                     >
                       Renal Medicine
@@ -366,11 +391,13 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("neurology")}
                     >
                       Neurology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("psychiatry")}
                     >
                       Psychiatry
@@ -381,6 +408,7 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() =>
                         chooseSpecialistHandler("paediatric medicine")
                       }
@@ -388,6 +416,7 @@ const Header = () => {
                       Paediatric Medicine
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() =>
                         chooseSpecialistHandler("paediatric surgery")
                       }
@@ -401,26 +430,31 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("dentistry")}
                     >
                       Dentistry
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("dermatology")}
                     >
                       Dermatology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("ophthalmology")}
                     >
                       Ophthalmology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("otorhino")}
                     >
                       Otorhinolaryngology / ENT
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("respiratory")}
                     >
                       Respiratory Medicine
@@ -431,11 +465,13 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("gynae")}
                     >
                       Obstetrics & Gynaecology
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("urology")}
                     >
                       {" "}
@@ -447,16 +483,19 @@ const Header = () => {
                     className={"custom-navdropdown2"}
                   >
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("occupational")}
                     >
                       Occupational Medicine
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("public")}
                     >
                       Public Health
                     </NavDropdown.Item>
                     <NavDropdown.Item
+                      className="custom-navdropdownitem"
                       onClick={() => chooseSpecialistHandler("rehabilitative")}
                     >
                       Rehabilitive Medicine
@@ -507,7 +546,7 @@ const Header = () => {
                       type="button"
                       onClick={signInHandler}
                     >
-                      <FaUser className={"custom-navbariconsize"}/>{" "}
+                      <FaUser className={"custom-navbariconsize"} />{" "}
                       <span className="custom-navbarspan">Sign in</span>
                     </Button>
                   </div>{" "}
@@ -515,13 +554,12 @@ const Header = () => {
                     <Button
                       className="custom-navbarbtn2"
                       onClick={doctorSignupHandler}
-                      
                     >
                       <FontAwesomeIcon
                         icon={icon({ name: "user-doctor" })}
                         className={"custom-navbariconsize"}
                       />{" "}
-                      <span className="custom-navbarspan2" >Join as Doctor</span>
+                      <span className="custom-navbarspan2">Join as Doctor</span>
                     </Button>
                   </div>
                 </>

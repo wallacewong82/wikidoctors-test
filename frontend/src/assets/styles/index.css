@@ -145,13 +145,15 @@ table th {
     font-weight: none;
   }
   .custom-navdropdownheader {
-    font-size: 16px;
+    font-size: 14px;
+    margin-top:-5px;
+    margin-bottom:-5px;
     color: black;
     font-weight: normal;
   }
   .custom-navdropdown2 {
-    margin: 10px;
-    font-size: 16px;
+    margin-left: 5px;
+    font-size: 14px;
     color: black;
     font-weight: bold;
     position: relative;
@@ -165,7 +167,13 @@ table th {
     font-size: 16px;
     font-weight: normal;
   }
-
+  .custom-navdropdownitem{
+    font-size:14px;
+  }
+  .no-scroll {
+    overflow: hidden;
+  }
+  
   /* FEEDBACK FORM */
   .custom-feedbackformlabel {
     font-size: 16px;
@@ -175,7 +183,7 @@ table th {
   }
   .custom-feedbackformfield {
     font-size: 16px;
-    max-width: 310px;
+    max-width: 65vw;
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -197,7 +205,7 @@ table th {
   }
   .custom-newsletterfield {
     font-size: 16px;
-    width: 300px;
+    width: 65vw;
     margin-left: 15px;
   }
   .custom-newsletterbutton {
@@ -297,11 +305,11 @@ table th {
     justify-content: center;
     text-align: center;
     color: black;
-    margin-left: -25px;
+    margin-left: -20px;
     margin-right: 5px;
   }
   .custom-healthinterestcol {
-    max-width: 160px;
+    max-width: 40vw;
   }
   .custom-takechargerow {
     min-height: 300px;
@@ -349,18 +357,31 @@ table th {
     transform: translate(-50%, -50%);
     text-align: center;
     color: black;
-    width: 300px;
+    width: 65vw;
   }
-
+  .custom-glow{
+    font-size: 2em; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: black; /* Text color */
+    text-align: center;
+    position: relative;
+    padding: 10px 20px;
+    text-shadow: 
+      0 0 5px white,
+      0 0 10px white,
+      0 0 15px white,
+      0 0 20px white,
+      0 0 25px white;
+  }
   /* MAIN PAGE SEARCH BOX */
 
   .custom-searchboxform {
     margin-top: 30px;
   }
   .custom-searchboxfield {
-    font-size: 16px;
+    font-size: 14px;
     height: 50px;
-    width: 300px;
+    width: 65vw;
   }
   .custom-searchboxbutton {
     margin-top: 5px;
@@ -492,20 +513,20 @@ table th {
     justify-content: center;
   }
   .custom-specialistsearchbarfield1 {
-    width: 280px;
+    width: 60vw;
   }
   .custom-specialistsearchbarfield2 {
-    width: 280px;
+    width: 60vw;
   }
   .custom-specialistsearchbarfield3 {
-    width: 280px;
+    width: 60vw;
   }
   .custom-specialistsearchbarfield4 {
-    width: 280px;
+    width: 60vw;
   }
   .custom-specialistsearchbardoctorfield {
     font-size: 16px;
-    width: 280px;
+    width: 60vw;
     border-color: black;
   }
   /* SPECIALIST SCREEN*/
@@ -1306,11 +1327,13 @@ table th {
     justify-content: center;
     text-align: center;
     color: black;
-    margin-left: -35px;
+    font-size:15px;
+    margin-left: -15px;
     margin-right: 5px;
   }
   .custom-healthinterestcol {
     max-width: 160px;
+    margin-bottom:10px;
   }
   .custom-takechargerow {
     min-height: 300px;
@@ -1360,7 +1383,20 @@ table th {
     color: black;
     width: 300px;
   }
-
+  .custom-glow{
+    font-size: 2em; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: black; /* Text color */
+    text-align: center;
+    position: relative;
+    padding: 10px 20px;
+    text-shadow: 
+      0 0 5px white,
+      0 0 10px white,
+      0 0 15px white,
+      0 0 20px white,
+      0 0 25px white;
+  }
   /* MAIN PAGE SEARCH BOX */
 
   .custom-searchboxform {
@@ -2170,14 +2206,14 @@ table th {
 
   /* FEEDBACK FORM */
   .custom-feedbackformlabel {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 10px;
     margin-bottom: 10px;
     float: inline-end;
   }
   .custom-feedbackformfield {
-    font-size: 18px;
-    max-width: 265px;
+    font-size: 16px;
+    max-width: 300px;
     margin-top: 5px;
     margin-bottom: 10px;
     margin-right: 5px;
@@ -2267,12 +2303,14 @@ table th {
     width: 140px;
     border-style: none;
     height: 130px;
+    margin-bottom:60px;
   }
   .custom-healthinterestbody {
     background-color: #1165a0;
     width: 100px;
     height: 100px;
     border-radius: 100%;
+
     align-items: center;
     justify-content: center;
   }
@@ -2288,6 +2326,8 @@ table th {
     justify-content: center;
     text-align: center;
     color: black;
+    margin-left: -20px;
+    margin-right: -20px;
   }
   .custom-takechargerow {
     min-height: 300px;
@@ -2318,12 +2358,27 @@ table th {
   .custom-maincarouseldiv2 {
     position: absolute;
     top: 45%;
-    left: 35%;
+    left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: black;
     width: 800px;
   }
+  .custom-glow{
+    font-size: 2em; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: black; /* Text color */
+    text-align: center;
+    position: relative;
+    padding: 10px 20px;
+    text-shadow: 
+      0 0 5px white,
+      0 0 10px white,
+      0 0 15px white,
+      0 0 20px white,
+      0 0 25px white;
+  }
+
 
   /* MAIN PAGE SEARCH BOX */
   .custom-searchboxform {
@@ -2458,20 +2513,20 @@ table th {
     display: flex;
   }
   .custom-specialistsearchbarfield1 {
-    width: 300px;
+    width: 18vw;
   }
   .custom-specialistsearchbarfield2 {
-    width: 300px;
+    width: 18vw;
   }
   .custom-specialistsearchbarfield3 {
-    width: 195px;
+    width: 12vw;
   }
   .custom-specialistsearchbarfield4 {
-    width: 195px;
+    width: 12vw;
   }
   .custom-specialistsearchbardoctorfield {
-    font-size: 16px;
-    width: 205px;
+    font-size: 14px;
+    width: 14vw;
     border-color: black;
   }
   /* SPECIALIST SCREEN*/
@@ -2757,9 +2812,13 @@ table th {
     font-size: 16px;
     font-weight: normal;
   }
+  .custom-hone2 {
+    font-size: 28px;
+    font-weight: bold;
+  }
   .custom-hfive {
-    font-size: 22px;
-    font-weight: normal;
+    font-size: 18px;
+    font-weight:500;
     margin-top: 5px;
   }
   .custom-navbarbtn {

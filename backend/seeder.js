@@ -15,7 +15,7 @@ import Blog from "./models/blogModel.js";
 import blogs from "./data/blogs.js";
 import Appointment from "./models/appointmentModel.js";
 import appointments from "./data/appointments.js";
-//commands: npm run data:import && npm run data:destroy
+//commands: npm run data:import && npm run data:destroy && npm run data:specialist
 
 dotenv.config();
 connectDB();
@@ -78,8 +78,25 @@ const destroyData = async ()=>{
         process.exit(1);
     }
 }
+const importOnlySpecData = async()=>{
+    try{
+        await Specialist.deleteMany();
+        const sampleSpecialists = specialists.map((specialist)=>{
+            return{...specialist};
+        })
+        await Specialist.insertMany(sampleSpecialists);
+
+        console.log('Spec data imported!'.green.inverse);
+        process.exit();
+    } catch(err){
+        console.log(`Spec data entry error + ${err}`);
+        process.exit(1);
+    }  
+}
 if(process.argv[2]==='-d'){
     destroyData();
+}else if(process.argv[2]==='-s'){
+    importOnlySpecData();
 } else{
     importData();
 }

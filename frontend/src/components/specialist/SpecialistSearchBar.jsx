@@ -271,7 +271,7 @@ const SpecialistSearchBar = ({
               <Form.Control
                 type="text"
                 name="q"
-                placeholder="Search by doctor's name"
+                placeholder="Find doctor name"
                 className={"custom-specialistsearchbardoctorfield"}
               //  className="mr-sm-2 ml-sm-5"
                 // style={{

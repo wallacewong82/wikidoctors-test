@@ -35,7 +35,7 @@ const HomeScreen = () => {
           className={"custom-maincarouselimage"}
         />
         <div className={"custom-maincarouseldiv2"}>
-          <h1 className={"custom-hone"}>
+          <h1 className={"custom-hone custom-glow"}>
             Search for the <b style={{ color: "#FEA416" }}>right doctors</b> in
             Singapore:
           </h1>
