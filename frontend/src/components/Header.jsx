@@ -177,7 +177,7 @@ const Header = () => {
           <LinkContainer to="/" onClick={() => handleSelect("home")}>
             <Navbar.Brand>
               <Image
-                src={`/api/webimage/663f68aaa3db0d582d1d4cdc`}
+                src={`/api/webimage/6726007cd4311cbf1dbc3d92`}
                 alt={"WikiDoctors.com logo"}
                 className={"custom-navbarlogo"}
               />{" "}
