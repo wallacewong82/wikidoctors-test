@@ -29,7 +29,7 @@ const HomeScreen = () => {
 
       <div className={"custom-maincarouseldiv"}>
         <Image
-          src={`/api/webimage/662e13ca8ae813b7214f5cbb`}
+          src={`/api/webimage/67260061d4311cbf1dbc3d77`}
           alt="Front Image"
           fluid
           className={"custom-maincarouselimage"}
@@ -77,7 +77,7 @@ const HomeScreen = () => {
       <hr />
       <Row className="d-md-none">
         <Image
-          src={`/api/webimage/662e122737e110aa3dad1de8`}
+          src={`/api/webimage/6726006ad4311cbf1dbc3d7e`}
           // src={"/images/pexels6.png"}
           alt="take charge image1"
           fluid
@@ -87,7 +87,7 @@ const HomeScreen = () => {
       <Row className={"custom-takechargerow"}>
         <Col className="d-none d-md-block">
           <Image
-            src={`/api/webimage/662e122737e110aa3dad1de8`}
+            src={`/api/webimage/6726006ad4311cbf1dbc3d7e`}
             // src={"/images/pexels6.png"}
             alt="take charge image2"
             fluid
@@ -131,7 +131,7 @@ const HomeScreen = () => {
       <hr />
       <Row className={"custom-newsletterrow"}>
         <Image
-          src={`/api/webimage/662e141422b517267e565aad`}
+          src={`/api/webimage/6726006dd4311cbf1dbc3d82`}
           // src={"/images/pexels7.png"}
           alt="newsletter signup"
           fluid
