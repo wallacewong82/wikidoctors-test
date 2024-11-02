@@ -75,6 +75,24 @@ const users = [
             dependentDetail: null
         }
     },
+    {
+        firstName:'Vodjo',
+        lastName:'Indonesia',
+        email: 'rikky@vodjo.com',
+        password:bcrypt.hashSync('Vodjo123',10),
+        idType: true,
+        idNumber:'',
+        gender: 1,
+        nationality:'Indonesian',
+        countryCode:'+62',
+        phoneNumber:0,
+        homeAddress:'',
+        homePostalCode: 0,
+        isCorporate: false,
+        isAdmin: false, 
+        corporateDetails: null,
+        isSuperAdmin: false,
+    }
 ]
 
 export default users;
