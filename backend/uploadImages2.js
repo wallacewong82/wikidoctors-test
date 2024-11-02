@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { GridFSBucket } from "mongodb";
 import fs from "fs";
 import path from "path";
-
+// to run: go to /backend, and run "node uploadImages2.js"
 // Connect to MongoDB
 const connection = mongoose.createConnection(
   "mongodb+srv://wallacewong82:wallacewong82@cluster0.m2uvnl8.mongodb.net/wikidocs-test?retryWrites=true&w=majority",
