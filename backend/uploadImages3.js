@@ -5,7 +5,7 @@ import path from "path";
 
 // Connect to MongoDB
 const connection = mongoose.createConnection(
-  "mongodb+srv://wallacewong82:wallacewong82@cluster0.m2uvnl8.mongodb.net/dhj?retryWrites=true&w=majority",
+  "mongodb+srv://wallacewong82:wallacewong82@cluster0.m2uvnl8.mongodb.net/wikidocs-test?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 connection.on("error", (err) =>
